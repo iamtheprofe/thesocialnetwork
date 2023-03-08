@@ -5,10 +5,19 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/helloWorld"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
         android:text="@string/feat_main_hello_world"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/byeWorld"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:text="@string/feat_main_goodbye_world"
+        app:layout_constraintTop_toBottomOf="@+id/helloWorld" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
