@@ -5,4 +5,6 @@
     <string name="feat_login_subtitle">Please Sign-in to continue</string>
 
     <string name="feat_search_friends_title">Search a friend</string>
+
+    <string name="feat_main_hello_world">Hello world!</string>
 </resources>
