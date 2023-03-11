@@ -8,4 +8,9 @@
 
     <string name="feat_main_hello_world">Hello world!</string>
     <string name="feat_main_goodbye_world">Good by world!</string>
+    <string name="feat_login_new_to_social_network">New to The Social Network?</string>
+    <string name="feat_login_register">Register</string>
+    <string name="feat_login_google">Login with Google</string>
+    <string name="feat_login_login">Login</string>
+    <string name="feat_login_or">OR</string>
 </resources>
