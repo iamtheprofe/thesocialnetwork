@@ -4,8 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/space_large"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_social_illustration"
+        app:layout_constraintBottom_toTopOf="@+id/form"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/space_large"
@@ -85,5 +94,59 @@
             android:elevation="0dp"
             android:text="@string/feat_login_login"
             app:layout_constraintBottom_toTopOf="@id/or" />
+
+        <TextView
+            android:id="@+id/forgotPassword"
+            style="@style/TheSocialNetwork.TextStyle.Link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_medium"
+            android:text="@string/feat_login_forgot_password"
+            app:layout_constraintBottom_toTopOf="@id/login"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInputLayout"
+            style="@style/TheSocialNetwork.Widget.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_small"
+            android:hint="@string/feat_login_hint_password"
+            app:layout_constraintBottom_toTopOf="@id/forgotPassword"
+            app:passwordToggleEnabled="true"
+            app:startIconDrawable="@drawable/ic_google">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/TheSocialNetwork.Widget.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailInputLayout"
+            style="@style/TheSocialNetwork.Widget.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_large"
+            android:hint="@string/feat_login_hint_email"
+            app:layout_constraintBottom_toTopOf="@id/passwordInputLayout"
+            app:startIconDrawable="@drawable/ic_google">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/TheSocialNetwork.Widget.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/TheSocialNetwork.TextStyle.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_large"
+            android:text="@string/feat_login_title"
+            app:layout_constraintBottom_toTopOf="@id/emailInputLayout"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,4 +13,8 @@
     <string name="feat_login_google">Login with Google</string>
     <string name="feat_login_login">Login</string>
     <string name="feat_login_or">OR</string>
+    <string name="feat_login_forgot_password">Forgot Password?</string>
+    <string name="feat_login_hint_password">Password</string>
+    <string name="feat_login_hint_email">Email</string>
+    <string name="feat_login_title">Login</string>
 </resources>
