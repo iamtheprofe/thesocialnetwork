@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TheSocialNetwork.Widget" />
+
+    <style name="TheSocialNetwork.Widget.Button">
+        <item name="android:background">@drawable/background_login</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">@style/TheSocialNetwork.TextStyle</item>
+    </style>
+
+    <style name="TheSocialNetwork.Widget.TextInputLayout">
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="hintEnabled">true</item>
+        <item name="hintTextAppearance">@style/TheSocialNetwork.TextStyle</item>
+        <item name="colorControlNormal">@color/separator</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+</resources>
