@@ -5,6 +5,7 @@
 
     <style name="TheSocialNetwork.TextStyle">
         <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="fontFamily">@font/red_hat_display_regular</item>
     </style>
 
     <style name="TheSocialNetwork.TextStyle.Title">
