@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="space_small">8dp</dimen>
+    <dimen name="space_medium">16dp</dimen>
     <dimen name="space_large">24dp</dimen>
+    <dimen name="space_xlarge">36dp</dimen>
 
-    <dimen name="text_size_big">32sp</dimen>
-    <dimen name="text_size_small">18sp</dimen>
+    <dimen name="text_size_big">28sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+
+    <dimen name="radius_small">12dp</dimen>
+
+    <dimen name="button_standard">44dp</dimen>
 </resources>
