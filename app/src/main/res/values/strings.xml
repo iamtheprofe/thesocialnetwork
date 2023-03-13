@@ -17,4 +17,9 @@
     <string name="feat_login_hint_password">Password</string>
     <string name="feat_login_hint_email">Email</string>
     <string name="feat_login_title">Login</string>
+    <string name="feat_signup_login">Login</string>
+    <string name="feat_signup_joined_us_before">Joined us before?</string>
+    <string name="feat_signup_continue">Continue</string>
+    <string name="feat_signup_privacy_policy">By signing up, you\'re agree to our Terms &amp; Conditions and Privacy Policy</string>
+    <string name="feat_signup_phone">Phone</string>
 </resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    tools:context=".signup.SignUpActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/joinedUsBefore"
+            style="@style/TheSocialNetwork.TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/feat_signup_joined_us_before"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/login"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/login"
+            style="@style/TheSocialNetwork.TextStyle.Link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_small"
+            android:text="@string/feat_signup_login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/joinedUsBefore" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonContinue"
+            style="@style/TheSocialNetwork.Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_large"
+            android:text="@string/feat_signup_continue"
+            app:layout_constraintBottom_toTopOf="@id/joinedUsBefore" />
+
+        <TextView
+            android:id="@+id/termsAndConditions"
+            android:layout_marginTop="@dimen/space_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_large"
+            android:layout_marginBottom="@dimen/space_large"
+            app:layout_constraintBottom_toTopOf="@id/buttonContinue"
+            app:layout_constraintStart_toStartOf="parent" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneNumber"
+            style="@style/TheSocialNetwork.Widget.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/space_large"
+            android:layout_height="wrap_content"
+            android:layout_margin = "@dimen/space_large"
+            android:hint="@string/feat_signup_phone"
+            app:layout_constraintBottom_toTopOf="@id/termsAndConditions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:startIconDrawable="@drawable/ic_phone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/TheSocialNetwork.Widget.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_large"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
