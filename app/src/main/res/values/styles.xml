@@ -9,7 +9,7 @@
 
     <style name="TheSocialNetwork.TextStyle.Title">
         <item name="android:textSize">@dimen/text_size_big</item>
-        <item name="android:textColor">@color/textTitlePrimary</item>
+        <item name="android:textColor">@color/textPrimary</item>
         <item name="android:textStyle">bold</item>
     </style>
 

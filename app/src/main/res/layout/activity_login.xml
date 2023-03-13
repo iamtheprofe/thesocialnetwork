@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="@dimen/space_large"
+        android:contentDescription="@null"
         android:scaleType="fitCenter"
         android:src="@drawable/img_social_illustration"
         app:layout_constraintBottom_toTopOf="@+id/form"
@@ -43,15 +44,17 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toEndOf="@id/newTextView" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <TextView
             android:id="@+id/google"
+            style="@style/TheSocialNetwork.Widget.Button.Google"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/space_large"
             android:background="@drawable/background_login_google"
-            android:elevation="0dp"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/space_xlarge"
             android:text="@string/feat_login_google"
-            android:textAppearance="@style/TheSocialNetwork.TextStyle"
+            app:drawableStartCompat="@drawable/ic_google"
             app:layout_constraintBottom_toTopOf="@id/register" />
 
         <TextView
@@ -85,11 +88,11 @@
             app:layout_constraintStart_toEndOf="@id/or"
             app:layout_constraintTop_toTopOf="@id/or" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/login"
             style="@style/TheSocialNetwork.Widget.Button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/button_standard"
             android:layout_marginBottom="@dimen/space_small"
             android:elevation="0dp"
             android:text="@string/feat_login_login"
@@ -114,7 +117,8 @@
             android:hint="@string/feat_login_hint_password"
             app:layout_constraintBottom_toTopOf="@id/forgotPassword"
             app:passwordToggleEnabled="true"
-            app:startIconDrawable="@drawable/ic_google">
+            app:passwordToggleDrawable="@drawable/ic_password_toggle"
+            app:startIconDrawable="@drawable/ic_password">
 
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
@@ -130,8 +134,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/space_large"
             android:hint="@string/feat_login_hint_email"
+            app:endIconMode="clear_text"
             app:layout_constraintBottom_toTopOf="@id/passwordInputLayout"
-            app:startIconDrawable="@drawable/ic_google">
+            app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
