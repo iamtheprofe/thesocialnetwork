@@ -3,10 +3,17 @@
 
     <style name="TheSocialNetwork.Widget" />
 
-    <style name="TheSocialNetwork.Widget.Button">
-        <item name="android:background">@drawable/background_login</item>
+    <style name="TheSocialNetwork.Widget.Button" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/background_button</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">@style/TheSocialNetwork.TextStyle</item>
+    </style>
+
+    <style name="TheSocialNetwork.Widget.Button.Google">
+        <item name="android:background">@drawable/background_login_google</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/textPrimary</item>
         <item name="android:textAppearance">@style/TheSocialNetwork.TextStyle</item>
     </style>
 

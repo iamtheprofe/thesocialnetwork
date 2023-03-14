@@ -11,11 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheSocialNetwork"
         tools:targetApi="31">
+
         <activity
-            android:name=".signup.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".login.LoginActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -24,6 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".signup.SignUpActivity" />
+        <activity android:name=".forgotPassword.ForgotPasswordActivity" />
+        <activity android:name=".resetPassword.ResetPasswordActivity" />
     </application>
 
 </manifest>

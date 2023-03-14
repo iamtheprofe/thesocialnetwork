@@ -1,13 +1,13 @@
-package com.example.thesocialnetwork.signup
+package com.example.thesocialnetwork.resetPassword
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.thesocialnetwork.R
 
-class SignUpActivity : AppCompatActivity() {
+class ResetPasswordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        setContentView(R.layout.activity_reset_password)
     }
 }
