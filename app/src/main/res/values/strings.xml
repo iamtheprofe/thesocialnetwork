@@ -20,4 +20,15 @@
     <string name="feat_login_hint_password">Password</string>
     <string name="feat_login_hint_email">Email</string>
     <string name="feat_login_title">Login</string>
+
+    <string name="feat_sign_up_joined_before">Joined us before?</string>
+    <string name="feat_sign_up_login">Login</string>
+    <string name="feat_sign_up_continue">Continue</string>
+    <string name="feat_sign_up_terms_privacy">By signing up, you\'re agree to our Terms &amp; Conditions and Privacy Policy</string>
+    <string name="feat_sign_up_terms_and_conditions">Terms &amp; Conditions</string>
+    <string name="feat_sign_up_privacy_policy">Privacy Policy</string>
+    <string name="feat_sign_up_email">Email</string>
+    <string name="feat_sign_up_full_name">Full Name</string>
+    <string name="feat_sign_up_mobile">Mobile</string>
+    <string name="feat_sign_up_sign_up">Sign Up</string>
 </resources>
