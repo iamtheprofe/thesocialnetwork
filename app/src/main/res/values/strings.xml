@@ -20,4 +20,11 @@
     <string name="feat_login_hint_password">Password</string>
     <string name="feat_login_hint_email">Email</string>
     <string name="feat_login_title">Login</string>
+
+    <string name="feat_reset_password">New password</string>
+    <string name="feat_reset_password_confirm">Confirm new password</string>
+    <string name="feat_reset_password_text_view">Reset\nPassword</string>
+    <string name="feat_reset_password_text_button">Submitting...</string>
+    <string name="feat_reset_password_content_description_back">Back button</string>
+
 </resources>

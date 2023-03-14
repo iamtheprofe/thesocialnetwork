@@ -11,4 +11,6 @@
     <dimen name="radius_small">12dp</dimen>
 
     <dimen name="button_standard">44dp</dimen>
+
+    <dimen name="icon_size">48dp</dimen>
 </resources>
