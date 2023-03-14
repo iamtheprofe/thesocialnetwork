@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/space_xlarge">
+    android:padding="@dimen/space_large">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/space_small"
         android:contentDescription="@null"
         android:scaleType="fitCenter"
         android:src="@drawable/img_social_illustration"
         app:layout_constraintBottom_toTopOf="@+id/form"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="@dimen/space_small"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/form"
@@ -22,13 +22,12 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
+            style="@style/TheSocialNetwork.TextStyle.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/feat_sign_up_sign_up"
-            app:layout_constraintBottom_toTopOf="@id/emailInputLayout"
-            style="@style/TheSocialNetwork.TextStyle.Title"
             android:layout_marginBottom="@dimen/space_large"
-            />
+            android:text="@string/feat_sign_up_sign_up"
+            app:layout_constraintBottom_toTopOf="@id/emailInputLayout" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailInputLayout"
@@ -37,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/space_medium"
             android:hint="@string/feat_sign_up_email"
-            app:layout_constraintBottom_toTopOf="@id/fullnameInputLayout"
+            app:layout_constraintBottom_toTopOf="@id/fullNameInputLayout"
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -48,7 +47,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fullnameInputLayout"
+            android:id="@+id/fullNameInputLayout"
             style="@style/TheSocialNetwork.Widget.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,13 +81,12 @@
 
         <TextView
             android:id="@+id/termsConditionsPrivacy"
+            style="@style/TheSocialNetwork.TextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/feat_sign_up_terms_privacy"
-            app:layout_constraintBottom_toTopOf="@id/continueAppCompatButton"
             android:layout_marginBottom="@dimen/space_large"
-            style="@style/TheSocialNetwork.TextStyle.Caption"
-            />
+            android:text="@string/feat_sign_up_terms_privacy"
+            app:layout_constraintBottom_toTopOf="@id/continueAppCompatButton" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/continueAppCompatButton"
@@ -115,7 +113,9 @@
             style="@style/TheSocialNetwork.TextStyle.Link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/space_medium"
+            android:layout_marginStart="@dimen/space_medium"
+            android:clickable="true"
+            android:focusable="true"
             android:text="@string/feat_sign_up_login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
