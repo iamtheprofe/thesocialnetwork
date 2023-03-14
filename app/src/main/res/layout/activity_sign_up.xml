@@ -46,20 +46,21 @@
 
         <TextView
             android:id="@+id/termsAndConditions"
-            android:layout_marginTop="@dimen/space_medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_large"
+            android:layout_marginTop="@dimen/space_medium"
             android:layout_marginBottom="@dimen/space_large"
             app:layout_constraintBottom_toTopOf="@id/buttonContinue"
             app:layout_constraintStart_toStartOf="parent" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phoneNumber"
             style="@style/TheSocialNetwork.Widget.TextInputLayout"
             android:layout_width="match_parent"
-            android:layout_marginBottom="@dimen/space_large"
             android:layout_height="wrap_content"
-            android:layout_margin = "@dimen/space_large"
+            android:layout_margin="@dimen/space_large"
+            android:layout_marginBottom="@dimen/space_large"
             android:hint="@string/feat_signup_phone"
             app:layout_constraintBottom_toTopOf="@id/termsAndConditions"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,10 +73,6 @@
                 android:layout_marginBottom="@dimen/space_large"
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

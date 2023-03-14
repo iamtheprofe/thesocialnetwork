@@ -27,8 +27,8 @@ class SignUpActivity : AppCompatActivity() {
         })
 
 
-
     }
+
     fun linkSpannableString() {
         val clickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
@@ -39,6 +39,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
     }
+
     private fun spannableString() {
         val clickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
@@ -49,7 +50,6 @@ class SignUpActivity : AppCompatActivity() {
         }
         val clickableSpan2 = object : ClickableSpan() {
             override fun onClick(widget: View) {
-
 
 
             }
@@ -66,8 +66,8 @@ class SignUpActivity : AppCompatActivity() {
         val end2 = spannableString.indexOf(word2) + word2.length
         spannableString.setSpan(customTextStyle, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannableString.setSpan(customTextStyle2, start2, end2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spannableString.setSpan(clickableSpan,start,end,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spannableString.setSpan(clickableSpan2,start2,end2,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(clickableSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(clickableSpan2, start2, end2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         val termsAndConditions = findViewById<TextView>(R.id.termsAndConditions)
         termsAndConditions.text = spannableString
     }
