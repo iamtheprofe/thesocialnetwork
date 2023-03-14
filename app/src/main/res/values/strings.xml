@@ -26,5 +26,6 @@
     <string name="feat_reset_password_text_view">Reset\nPassword</string>
     <string name="feat_reset_password_text_button">Submitting...</string>
     <string name="feat_reset_password_content_description_back">Back button</string>
+    <string name="feat_reset_password_image_description">image of reset password</string>
 
 </resources>
