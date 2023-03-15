@@ -28,12 +28,12 @@ class SignUpActivity : AppCompatActivity() {
             override fun onClick(widget: View) {
             }
         }
-        val startIndex1 = agreement.indexOf("Terms & Conditions")
-        val endIndex1 = startIndex1 + "Terms & Conditions".length
+        val startIndex1 = agreement.indexOf(getString(R.string.feat_sign_up_terms_conditions))
+        val endIndex1 = startIndex1 + (getString(R.string.feat_sign_up_terms_conditions)).length
         builder.setSpan(termsConditions, startIndex1, endIndex1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        val startIndex2 = agreement.indexOf("Privacy Policy")
-        val endIndex2 = startIndex2 + "Privacy Policy".length
+        val startIndex2 = agreement.indexOf(getString(R.string.feat_signup_privacy_policy))
+        val endIndex2 = startIndex2 + (getString(R.string.feat_sign_up_privacy_policy)).length
         builder.setSpan(privacyPolicy, startIndex2, endIndex2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         val linkStyle = TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
