@@ -26,8 +26,9 @@
     <string name="feat_sign_up_privacy_policy">Privacy Policy</string>
     <string name="feat_sign_up_and">and</string>
     <string name="feat_sign_up_agreement">By signing up, you´re agree to our Terms &amp; Conditions and Privacy Policy</string>
-    <string name="feat_sign_up_terms_and_conditions"><![CDATA[Terms & conditions]]></string>
     <string name="feat_sign_up_mobile">Mobile</string>
     <string name="feat_sign_up_sign_up">Sign up</string>
-    <string name="feat_signup_full_name">Full name</string>
+    <string name="feat_sign_up_full_name">Full name</string>
+    <string name="feat_signup_privacy_policy">Privacy Policy</string>
+    <string name="feat_sign_up_terms_conditions"><![CDATA[Terms & Conditions]]></string>
 </resources>
