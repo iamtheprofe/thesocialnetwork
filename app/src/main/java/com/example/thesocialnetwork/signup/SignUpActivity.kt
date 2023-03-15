@@ -6,13 +6,13 @@ import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import android.text.Spannable
-import android.text.SpannableString
+
 import android.text.SpannableStringBuilder
-import android.text.Spanned
+
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.TextAppearanceSpan
-import android.util.Patterns
+
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -26,14 +26,12 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up)
         spannableString()
         val textViewLogin = findViewById<TextView>(R.id.login)
-        fun toast() {
-            Toast.makeText(this, "xxxx", Toast.LENGTH_LONG).show()
-        }
-        textViewLogin.setOnClickListener(View.OnClickListener {
+
+        textViewLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
 
-        })
+        }
         val textAnalice = resources.getString(R.string.feat_signup_privacy_policy)
         clickableLink(textAnalice)
 
@@ -42,7 +40,6 @@ class SignUpActivity : AppCompatActivity() {
 
     fun clickableLink(longText: String) {
         try {
-            val spanned = SpannableString(longText)
             val word1 = "Terms & Conditions"
             val word2 = "Privacy Policy"
             val customTextStyle2 = TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
@@ -52,6 +49,7 @@ class SignUpActivity : AppCompatActivity() {
             val end = spannableString.indexOf(word1) + word1.length
             val start2 = spannableString.indexOf(word2)
             val end2 = spannableString.indexOf(word2) + word2.length
+
             val clickableSpan: ClickableSpan = object : ClickableSpan() {
                 override fun onClick(widget: View) {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"))
@@ -62,23 +60,34 @@ class SignUpActivity : AppCompatActivity() {
             val clickableSpan2: ClickableSpan = object : ClickableSpan() {
                 override fun onClick(widget: View) {
                     toast()
-
                 }
             }
 
-            spannableString.setSpan(clickableSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            spannableString.setSpan(
+                clickableSpan,
+                start,
+                end,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
             spannableString.setSpan(
                 clickableSpan2,
                 start2,
                 end2,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
+
             val termsAndConditions = findViewById<TextView>(R.id.termsAndConditions)
+            spannableString.setSpan(customTextStyle, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            spannableString.setSpan(
+                customTextStyle2,
+                start2,
+                end2,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
             termsAndConditions.text = spannableString
             termsAndConditions.movementMethod = LinkMovementMethod.getInstance()
             termsAndConditions.paintFlags =
                 termsAndConditions.paintFlags and Paint.UNDERLINE_TEXT_FLAG.inv()
-
 
         } catch (e: java.lang.Exception) {
             e.printStackTrace()

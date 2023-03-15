@@ -22,4 +22,5 @@
     <string name="feat_signup_continue">Continue</string>
     <string name="feat_signup_privacy_policy">By signing up, you\'re agree to our Terms &amp; Conditions and Privacy Policy</string>
     <string name="feat_signup_phone">Phone</string>
+    <string name="feat_signup_image_content_description">Imagen of phone and persons</string>
 </resources>
