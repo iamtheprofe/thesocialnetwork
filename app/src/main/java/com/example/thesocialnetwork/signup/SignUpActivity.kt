@@ -24,21 +24,18 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-        spannableString()
         val textViewLogin = findViewById<TextView>(R.id.login)
-
+        val completeText = resources.getString(R.string.feat_signup_privacy_policy)
+        clickableLink(completeText)
         textViewLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-
         }
-        val textAnalice = resources.getString(R.string.feat_signup_privacy_policy)
-        clickableLink(textAnalice)
-
-
+        val textAnalise = resources.getString(R.string.feat_signup_privacy_policy)
+        clickableLink(textAnalise)
     }
 
-    fun clickableLink(longText: String) {
+    private fun clickableLink(longText: String) {
         try {
             val word1 = "Terms & Conditions"
             val word2 = "Privacy Policy"
@@ -49,7 +46,6 @@ class SignUpActivity : AppCompatActivity() {
             val end = spannableString.indexOf(word1) + word1.length
             val start2 = spannableString.indexOf(word2)
             val end2 = spannableString.indexOf(word2) + word2.length
-
             val clickableSpan: ClickableSpan = object : ClickableSpan() {
                 override fun onClick(widget: View) {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"))
@@ -95,23 +91,9 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     fun toast() {
-        Toast.makeText(this, "me tocaste puto", Toast.LENGTH_LONG).show()
-    }
-
-    private fun spannableString() {
-        val clickableSpan = object : ClickableSpan() {
-            override fun onClick(widget: View) {
-                // Acción a realizar cuando se hace clic en el enlace
-                toast()
-            }
-        }
-        val clickableSpan2 = object : ClickableSpan() {
-            override fun onClick(widget: View) {
-                toast()
-            }
-        }
-
+        Toast.makeText(this, "you touch me mother fucker ", Toast.LENGTH_LONG).show()
     }
 }
+
 
 

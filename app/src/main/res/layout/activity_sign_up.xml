@@ -7,7 +7,18 @@
     android:padding="24dp"
     tools:context=".signup.SignUpActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/space_large"
+        android:contentDescription="@string/feat_signup_image_content_description"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_signup"
+        app:layout_constraintBottom_toTopOf="@+id/form"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/form"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -36,7 +47,7 @@
             app:layout_constraintStart_toEndOf="@id/joinedUsBefore" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonContinue"
+            android:id="@+id/Continue"
             style="@style/TheSocialNetwork.Widget.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,7 +62,7 @@
             android:layout_marginStart="@dimen/space_large"
             android:layout_marginTop="@dimen/space_medium"
             android:layout_marginBottom="@dimen/space_large"
-            app:layout_constraintBottom_toTopOf="@id/buttonContinue"
+            app:layout_constraintBottom_toTopOf="@id/Continue"
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -64,14 +75,59 @@
             android:hint="@string/feat_signup_phone"
             app:layout_constraintBottom_toTopOf="@id/termsAndConditions"
             app:layout_constraintStart_toStartOf="parent"
-            app:startIconDrawable="@drawable/ic_phone">
+            app:startIconDrawable="@drawable/ic_phone_call">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                style="@style/TheSocialNetwork.Widget.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_small"
+                android:inputType="phone" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fullName"
+            style="@style/TheSocialNetwork.Widget.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_large"
+            android:layout_marginBottom="@dimen/space_large"
+            android:hint="@string/feat_signup_full_name"
+            app:layout_constraintBottom_toTopOf="@id/phoneNumber"
+            app:layout_constraintStart_toStartOf="parent"
+            app:startIconDrawable="@drawable/ic_person">
 
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/space_large"
-                android:inputType="phone" />
+                android:layout_marginBottom="@dimen/space_small" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email"
+            style="@style/TheSocialNetwork.Widget.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_large"
+            android:layout_marginBottom="@dimen/space_large"
+            android:hint="@string/feat_signup_email"
+            app:layout_constraintBottom_toTopOf="@id/fullName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:startIconDrawable="@drawable/ic_arroba">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/TheSocialNetwork.Widget.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_small"
+
+                />
+
         </com.google.android.material.textfield.TextInputLayout>
 
 

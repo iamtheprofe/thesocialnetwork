@@ -1,11 +1,8 @@
 <resources>
     <string name="app_name">TheSocialNetwork</string>
-
     <string name="feat_login_welcome">Welcome to TheSocialNetwork</string>
     <string name="feat_login_subtitle">Please Sign-in to continue</string>
-
     <string name="feat_search_friends_title">Search a friend</string>
-
     <string name="feat_main_hello_world">Hello world!</string>
     <string name="feat_main_goodbye_world">Good by world!</string>
     <string name="feat_login_new_to_social_network">New to The Social Network?</string>
@@ -22,5 +19,8 @@
     <string name="feat_signup_continue">Continue</string>
     <string name="feat_signup_privacy_policy">By signing up, you\'re agree to our Terms &amp; Conditions and Privacy Policy</string>
     <string name="feat_signup_phone">Phone</string>
-    <string name="feat_signup_image_content_description">Imagen of phone and persons</string>
+    <string name="feat_signup_image_content_description">Image of person registering</string>
+    <string name="feat_signup_full_name">Full name</string>
+    <string name="feat_signup_email">Email</string>
+    <string name="feat_login_image_content_description">Image of person see a phone</string>
 </resources>
