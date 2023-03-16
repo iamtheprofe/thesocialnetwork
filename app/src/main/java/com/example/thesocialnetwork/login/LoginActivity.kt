@@ -31,9 +31,9 @@ class LoginActivity: AppCompatActivity() {
         val isValidPassword = isValidPassword(password.text.toString())
 
         if (isValidEmail && isValidPassword) {
-            Toast.makeText(this, "Credentials correct!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.feat_sign_up_correct_credentials), Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(this, "Incorrect credentials!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.feat_sign_up_incorrect_credentials) , Toast.LENGTH_SHORT).show()
         }
     }
 
