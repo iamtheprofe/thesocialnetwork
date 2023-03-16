@@ -30,15 +30,16 @@ class SignUpActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-        val textAnalise = resources.getString(R.string.feat_signup_privacy_policy)
-        clickableLink(textAnalise)
     }
+
     private fun clickableLink(longText: String) {
         try {
             val wordToSearch = resources.getString(R.string.word_to_search1)
             val wordToSearch2 = resources.getString(R.string.word_to_search2)
-            val textStyleForLinks2 = TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
-            val textStyleForLinks = TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
+            val textStyleForLinks2 =
+                TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
+            val textStyleForLinks =
+                TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
             val spannableString = SpannableStringBuilder(longText)
             val startPosition = spannableString.indexOf(wordToSearch)
             val endPosition = spannableString.indexOf(wordToSearch) + wordToSearch.length
@@ -47,7 +48,10 @@ class SignUpActivity : AppCompatActivity() {
 
             val clickableSpan: ClickableSpan = object : ClickableSpan() {
                 override fun onClick(widget: View) {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(resources.getString(R.string.src_for_signup)))
+                    val intent = Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse(resources.getString(R.string.src_for_signup))
+                    )
                     startActivity(intent)
 
                 }
@@ -72,7 +76,12 @@ class SignUpActivity : AppCompatActivity() {
             )
 
             val termsAndConditions = findViewById<TextView>(R.id.termsAndConditions)
-            spannableString.setSpan(textStyleForLinks, startPosition, endPosition, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            spannableString.setSpan(
+                textStyleForLinks,
+                startPosition,
+                endPosition,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
             spannableString.setSpan(
                 textStyleForLinks2,
                 startPosition2,
@@ -88,6 +97,7 @@ class SignUpActivity : AppCompatActivity() {
             e.printStackTrace()
         }
     }
+
     fun toast() {
         Toast.makeText(this, "you touch me mother fucker ", Toast.LENGTH_LONG).show()
     }
