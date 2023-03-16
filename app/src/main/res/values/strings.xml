@@ -31,4 +31,11 @@
     <string name="feat_sign_up_full_name">Full name</string>
     <string name="feat_signup_privacy_policy">Privacy Policy</string>
     <string name="feat_sign_up_terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="feat_sign_up_correct_credentials">Credentials are correct</string>
+    <string name="feat_sign_up_incorrect_credentials">Credentials are incorrect,please check them</string>
+    <string name="feat_reset_password_submit">Submit</string>
+    <string name="feat_reset_password_email_mobile">Email ID/Mobile number</string>
+    <string name="feat_reset_password_password">Password?</string>
+    <string name="feat_reset_password_do_not_worry_message">Don´t Worry! it happens. Please entre the address associated with your account.</string>
+    <string name="feat_reset_password_forgot">Forgot</string>
 </resources>
