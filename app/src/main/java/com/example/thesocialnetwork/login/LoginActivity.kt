@@ -1,11 +1,15 @@
 package com.example.thesocialnetwork.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.thesocialnetwork.R
+import com.example.thesocialnetwork.resetPassword.ResetPasswordActivity
+import com.example.thesocialnetwork.signup.SignUpActivity
 import com.google.android.material.textfield.TextInputEditText
 
 class LoginActivity: AppCompatActivity() {
@@ -17,6 +21,12 @@ class LoginActivity: AppCompatActivity() {
         val login = findViewById<Button>(R.id.login)
         login.setOnClickListener {
             handleLogin()
+        }
+        findViewById<TextView>(R.id.register).setOnClickListener{
+            startActivity(Intent(this,SignUpActivity::class.java))
+        }
+        findViewById<TextView>(R.id.forgotPassword).setOnClickListener{
+            startActivity(Intent(this,ResetPasswordActivity::class.java))
         }
 
         Toast.makeText(this, "This is onCreate", Toast.LENGTH_SHORT).show()

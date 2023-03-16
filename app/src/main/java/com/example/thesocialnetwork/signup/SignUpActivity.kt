@@ -24,7 +24,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        findViewById<EditText>(R.id.login).setOnClickListener{
+        findViewById<TextView>(R.id.login).setOnClickListener{
             startActivity(Intent(this,LoginActivity::class.java))
         }
 
@@ -62,7 +62,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun handleContinue() {
 
-        val email = findViewById<TextInputEditText>(R.id.emailInputLayout)
+        val email = findViewById<TextInputEditText>(R.id.email)
         val fullName = findViewById<TextInputEditText>(R.id.fullName)
         val mobile = findViewById<TextInputEditText>(R.id.mobile)
 

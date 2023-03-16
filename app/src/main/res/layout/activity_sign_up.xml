@@ -41,36 +41,38 @@
             android:layout_marginBottom="@dimen/space_medium"
             android:hint="@string/feat_login_hint_email"
             app:endIconMode="clear_text"
-            app:layout_constraintBottom_toTopOf="@id/fullName"
+            app:layout_constraintBottom_toTopOf="@id/fullNameInputLayout"
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
                 android:layout_width="match_parent"
+                android:id="@+id/email"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fullName"
+            android:id="@+id/fullNameInputLayout"
             style="@style/TheSocialNetwork.Widget.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/space_medium"
             android:hint="@string/feat_sign_up_full_name"
             app:endIconMode="clear_text"
-            app:layout_constraintBottom_toTopOf="@id/mobile"
+            app:layout_constraintBottom_toTopOf="@id/mobileInputLayout"
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/fullName"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/mobile"
+            android:id="@+id/mobileInputLayout"
             style="@style/TheSocialNetwork.Widget.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,6 +86,7 @@
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/mobile"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -96,7 +99,7 @@
             android:text="@string/feat_sign_up_agreement"
             app:layout_constraintBottom_toTopOf="@id/continue_button"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mobile" />
+            app:layout_constraintTop_toBottomOf="@id/mobileInputLayout" />
 
         <Button
             android:id="@+id/continue_button"
