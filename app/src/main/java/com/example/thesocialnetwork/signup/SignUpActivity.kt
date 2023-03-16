@@ -1,6 +1,5 @@
 package com.example.thesocialnetwork.signup
 
-
 import android.content.Intent
 import android.graphics.Paint
 import android.net.Uri
@@ -24,31 +23,31 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-        val textViewLogin = findViewById<TextView>(R.id.login)
+        val login = findViewById<TextView>(R.id.login)
         val completeText = resources.getString(R.string.feat_signup_privacy_policy)
         clickableLink(completeText)
-        textViewLogin.setOnClickListener {
+        login.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
         val textAnalise = resources.getString(R.string.feat_signup_privacy_policy)
         clickableLink(textAnalise)
     }
-
     private fun clickableLink(longText: String) {
         try {
-            val word1 = "Terms & Conditions"
-            val word2 = "Privacy Policy"
-            val customTextStyle2 = TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
-            val customTextStyle = TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
+            val wordToSearch = resources.getString(R.string.word_to_search1)
+            val wordToSearch2 = resources.getString(R.string.word_to_search2)
+            val textStyleForLinks2 = TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
+            val textStyleForLinks = TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
             val spannableString = SpannableStringBuilder(longText)
-            val start = spannableString.indexOf(word1)
-            val end = spannableString.indexOf(word1) + word1.length
-            val start2 = spannableString.indexOf(word2)
-            val end2 = spannableString.indexOf(word2) + word2.length
+            val startPosition = spannableString.indexOf(wordToSearch)
+            val endPosition = spannableString.indexOf(wordToSearch) + wordToSearch.length
+            val startPosition2 = spannableString.indexOf(wordToSearch2)
+            val endPosition2 = spannableString.indexOf(wordToSearch2) + wordToSearch2.length
+
             val clickableSpan: ClickableSpan = object : ClickableSpan() {
                 override fun onClick(widget: View) {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"))
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(resources.getString(R.string.src_for_signup)))
                     startActivity(intent)
 
                 }
@@ -61,23 +60,23 @@ class SignUpActivity : AppCompatActivity() {
 
             spannableString.setSpan(
                 clickableSpan,
-                start,
-                end,
+                startPosition,
+                endPosition,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
             spannableString.setSpan(
                 clickableSpan2,
-                start2,
-                end2,
+                startPosition2,
+                endPosition2,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
 
             val termsAndConditions = findViewById<TextView>(R.id.termsAndConditions)
-            spannableString.setSpan(customTextStyle, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            spannableString.setSpan(textStyleForLinks, startPosition, endPosition, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             spannableString.setSpan(
-                customTextStyle2,
-                start2,
-                end2,
+                textStyleForLinks2,
+                startPosition2,
+                endPosition2,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
             termsAndConditions.text = spannableString
@@ -89,11 +88,7 @@ class SignUpActivity : AppCompatActivity() {
             e.printStackTrace()
         }
     }
-
     fun toast() {
         Toast.makeText(this, "you touch me mother fucker ", Toast.LENGTH_LONG).show()
     }
 }
-
-
-
