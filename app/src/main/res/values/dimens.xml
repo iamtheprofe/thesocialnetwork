@@ -2,7 +2,14 @@
 <resources>
     <dimen name="space_small">8dp</dimen>
     <dimen name="space_large">24dp</dimen>
+    <dimen name="space_extra_large">45dp</dimen>
+    <dimen name="space_extra_extra_large">80dp</dimen>
 
     <dimen name="text_size_big">32sp</dimen>
     <dimen name="text_size_small">18sp</dimen>
+    <dimen name="text_size_extra_small">10sp</dimen>
+    <dimen name="text_size_forgot_password">40sp</dimen>
+
+    <dimen name="radius_submit_button">8dp</dimen>
+    <dimen name="scroll_bar">48dp</dimen>
 </resources>

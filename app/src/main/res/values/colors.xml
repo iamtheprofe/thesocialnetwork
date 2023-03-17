@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="textTitlePrimary">#830002</color>
+    <color name="submit_button">#FF0065FE</color>
+    <color name="text_hint_email">#FFD6D9DE</color>
+    <color name="scroll_bar_bottom">#9B9C9E</color>
 </resources>

@@ -3,6 +3,12 @@
 
     <string name="feat_login_welcome">Welcome to TheSocialNetwork</string>
     <string name="feat_login_subtitle">Please Sign-in to continue</string>
-
     <string name="feat_search_friends_title">Search a friend</string>
+
+    <string name="feat_forgot_password_title">Forgot your Password?</string>
+    <string name="feat_text_forgot_presentation">Don\'t worry happens. Please enter the
+    address associated whit your account.</string>
+    <string name="button_Submit">Submit</string>
+    <string name="text_emailId_Recover">Email ID / Mobile number</string>
+
 </resources>

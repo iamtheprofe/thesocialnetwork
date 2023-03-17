@@ -7,8 +7,14 @@
         <item name="android:textSize">@dimen/text_size_small</item>
     </style>
 
+
     <style name="TheSocialNetwork.TextStyle.Title">
         <item name="android:textSize">@dimen/text_size_big</item>
         <item name="android:textColor">@color/textTitlePrimary</item>
     </style>
+
+    <style name="TheSocialNetwork.TextStyle.ForgotPassword">
+        <item name="android:textSize">@dimen/text_size_forgot_password</item>
+    </style>
+
 </resources>
