@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/space_medium">
 
     <ImageView
         android:layout_width="match_parent"
@@ -30,8 +31,8 @@
             android:layout_marginBottom="@dimen/space_large"
             android:text="@string/feat_sign_up_sign_up"
             app:layout_constraintBottom_toTopOf="@id/emailInputLayout"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailInputLayout"
@@ -45,9 +46,9 @@
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
                 android:layout_width="match_parent"
-                android:id="@+id/email"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -64,10 +65,10 @@
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullName"
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/fullName"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,14 +80,14 @@
             android:layout_marginBottom="@dimen/space_xlarge"
             android:hint="@string/feat_sign_up_mobile"
             app:endIconMode="clear_text"
-            app:layout_constraintBottom_toBottomOf="@id/agreement"
+            app:layout_constraintBottom_toTopOf="@id/agreement"
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobile"
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/mobile"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,8 +99,7 @@
             android:layout_marginBottom="@dimen/space_large"
             android:text="@string/feat_sign_up_agreement"
             app:layout_constraintBottom_toTopOf="@id/continue_button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mobileInputLayout" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/continue_button"
@@ -110,8 +110,7 @@
             android:elevation="0dp"
             android:text="@string/feat_sign_up_continue"
             app:layout_constraintBottom_toTopOf="@id/joinedAlreadyTextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/agreement">
+            app:layout_constraintEnd_toEndOf="parent">
 
         </Button>
 

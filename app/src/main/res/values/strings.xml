@@ -33,12 +33,13 @@
     <string name="feat_sign_up_terms_conditions"><![CDATA[Terms & Conditions]]></string>
     <string name="feat_sign_up_correct_credentials">Credentials are correct</string>
     <string name="feat_sign_up_incorrect_credentials">Credentials are incorrect,please check them</string>
-    <string name="feat_reset_password_submit">Submit</string>
-    <string name="feat_reset_password_email_mobile">Email ID/Mobile number</string>
-    <string name="feat_reset_password_password">Password?</string>
-    <string name="feat_reset_password_do_not_worry_message">Don´t Worry! it happens. Please entre the address associated with your account.</string>
-    <string name="feat_reset_password_forgot">Forgot</string>
+    <string name="feat_forgot_password_submit">Submit</string>
+    <string name="feat_forgot_password_email_mobile">Email ID/Mobile number</string>
+    <string name="feat_forgot_password_password">Password?</string>
+    <string name="feat_forgot_password_do_not_worry_message">Don´t Worry! it happens. Please entre the address associated with your account.</string>
+    <string name="feat_forgot_password_forgot">Forgot</string>
     <string name="feat_reset_password_confirm_new_password">Confirm new password</string>
     <string name="feat_reset_password_new_password">New password</string>
     <string name="feat_reset_password_reset">Reset</string>
+    <string name="feat_forgot_password_invalid_email_mobile">Invalid Email or Mobile Number</string>
 </resources>
