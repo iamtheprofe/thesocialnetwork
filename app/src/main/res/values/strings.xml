@@ -20,4 +20,9 @@
     <string name="feat_login_hint_password">Password</string>
     <string name="feat_login_hint_email">Email</string>
     <string name="feat_login_title">Login</string>
+
+    <string name="feat_forgot_button">Submit</string>
+    <string name="feat_forgot_recovery">Email ID / Mobile number</string>
+    <string name="feat_forgot_introduction">Don\'t worry! it happens. Please enter the address associated with your account</string>
+    <string name="feat_forgot_title">Forgot password?</string>
 </resources>
