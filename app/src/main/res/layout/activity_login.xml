@@ -90,7 +90,7 @@
             android:id="@+id/login"
             style="@style/TheSocialNetwork.Widget.Button"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/button_standard"
+            android:layout_height="44dp"
             android:layout_marginBottom="@dimen/space_small"
             android:elevation="0dp"
             android:text="@string/feat_login_login"
