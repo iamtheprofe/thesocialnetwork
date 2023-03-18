@@ -5,24 +5,26 @@ import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import android.text.Spannable
-
 import android.text.SpannableStringBuilder
-
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.TextAppearanceSpan
-
+import android.util.Patterns
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import com.example.thesocialnetwork.R
 import com.example.thesocialnetwork.login.LoginActivity
+import com.google.android.material.textfield.TextInputEditText
+
 
 class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+
         val login = findViewById<TextView>(R.id.login)
         val completeText = resources.getString(R.string.feat_signup_privacy_policy)
         clickableLink(completeText)
@@ -30,7 +32,35 @@ class SignUpActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+        val continueButton = findViewById<AppCompatButton>(R.id.continue1)
+        continueButton.setOnClickListener {
+            val textEmail = findViewById<TextInputEditText>(R.id.email)
+            val textPassword = findViewById<TextInputEditText>(R.id.password)
+            val textConfirmPassword = findViewById<TextInputEditText>(R.id.confirmPassword)
+            val fields = checkFields(textEmail.text.toString(), textPassword.text.toString(), textConfirmPassword.text.toString())
+            if (fields[0] && fields[1]) {
+                Toast.makeText(this, "Good job you are register", Toast.LENGTH_LONG).show()
+            } else Toast.makeText(this, "incorrect data", Toast.LENGTH_LONG).show()
+        }
     }
+
+    private fun checkFields(
+        email: String,
+        password: String,
+        confirmPassword: String
+    ): ArrayList<Boolean> {
+        val arrayList = ArrayList<Boolean>()
+        val cleanEmail = email.trim().lowercase()
+        val cleanPassword = password.trim().lowercase()
+        val cleanConfirmPassword = confirmPassword.trim().lowercase()
+        val checkEmail =
+            Patterns.EMAIL_ADDRESS.matcher(cleanEmail).matches()
+        val checkPasswords = cleanPassword == cleanConfirmPassword
+        arrayList.add(checkEmail)
+        arrayList.add(checkPasswords)
+        return arrayList
+    }
+
 
     private fun clickableLink(longText: String) {
         try {
