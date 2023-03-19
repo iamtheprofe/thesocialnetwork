@@ -45,12 +45,12 @@
 
         <TextView
             android:id="@+id/google"
-            style="@style/TheSocialNetwork.Widget.Button.Google"
+            style="@style/TheSocialNetwork.Widget.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/space_large"
             android:gravity="center"
-            android:paddingHorizontal="@dimen/space_xlarge"
+            android:paddingHorizontal="@dimen/space_large"
             android:text="@string/feat_login_google"
             app:drawableStartCompat="@drawable/ic_google"
             app:layout_constraintBottom_toTopOf="@id/register" />
@@ -116,7 +116,7 @@
             app:layout_constraintBottom_toTopOf="@id/forgotPassword"
             app:passwordToggleDrawable="@drawable/selector_password_toggle"
             app:passwordToggleEnabled="true"
-            app:startIconDrawable="@drawable/ic_password">
+            app:startIconDrawable="@drawable/ic_lock">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
@@ -135,7 +135,7 @@
             android:hint="@string/feat_login_hint_email"
             app:endIconMode="clear_text"
             app:layout_constraintBottom_toTopOf="@id/passwordInputLayout"
-            app:startIconDrawable="@drawable/ic_email">
+            app:startIconDrawable="@drawable/ic_arroba">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email"

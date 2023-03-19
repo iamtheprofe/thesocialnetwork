@@ -37,7 +37,11 @@ class SignUpActivity : AppCompatActivity() {
             val textEmail = findViewById<TextInputEditText>(R.id.email)
             val textPassword = findViewById<TextInputEditText>(R.id.password)
             val textConfirmPassword = findViewById<TextInputEditText>(R.id.confirmPassword)
-            val fields = checkFields(textEmail.text.toString(), textPassword.text.toString(), textConfirmPassword.text.toString())
+            val fields = checkFields(
+                textEmail.text.toString(),
+                textPassword.text.toString(),
+                textConfirmPassword.text.toString()
+            )
             if (fields[0] && fields[1]) {
                 Toast.makeText(this, "Good job you are register", Toast.LENGTH_LONG).show()
             } else Toast.makeText(this, "incorrect data", Toast.LENGTH_LONG).show()
