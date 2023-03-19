@@ -18,6 +18,8 @@ import androidx.appcompat.widget.AppCompatButton
 import com.example.thesocialnetwork.R
 import com.example.thesocialnetwork.login.LoginActivity
 import com.google.android.material.textfield.TextInputEditText
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class SignUpActivity : AppCompatActivity() {
@@ -25,6 +27,8 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+
+//-------------------------------------------------------------------------------------------------------------
         val login = findViewById<TextView>(R.id.login)
         val completeText = resources.getString(R.string.feat_signup_privacy_policy)
         clickableLink(completeText)
@@ -32,6 +36,7 @@ class SignUpActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+        //-----------------------------------------------------------------------------------------------------------------------------
         val continueButton = findViewById<AppCompatButton>(R.id.continue1)
         continueButton.setOnClickListener {
             val textEmail = findViewById<TextInputEditText>(R.id.email)
@@ -43,11 +48,17 @@ class SignUpActivity : AppCompatActivity() {
                 textConfirmPassword.text.toString()
             )
             if (fields[0] && fields[1]) {
+                val retrofit = Retrofit.Builder()
+                    .baseUrl("https://example.com/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
                 Toast.makeText(this, "Good job you are register", Toast.LENGTH_LONG).show()
+
             } else Toast.makeText(this, "incorrect data", Toast.LENGTH_LONG).show()
         }
     }
 
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------
     private fun checkFields(
         email: String,
         password: String,
@@ -64,6 +75,11 @@ class SignUpActivity : AppCompatActivity() {
         arrayList.add(checkPasswords)
         return arrayList
     }
+
+
+    data class ApiResponse(
+        val message: String
+    )
 
 
     private fun clickableLink(longText: String) {
