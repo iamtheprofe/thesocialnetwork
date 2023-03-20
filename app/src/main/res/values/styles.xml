@@ -5,12 +5,19 @@
 
     <style name="TheSocialNetwork.TextStyle">
         <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="fontFamily">@font/red_hat_display_regular</item>
     </style>
 
 
     <style name="TheSocialNetwork.TextStyle.Title">
         <item name="android:textSize">@dimen/text_size_big</item>
-        <item name="android:textColor">@color/textTitlePrimary</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TheSocialNetwork.TextStyle.Link">
+        <item name="android:textColor">@color/textLink</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TheSocialNetwork.TextStyle.ForgotPassword">
