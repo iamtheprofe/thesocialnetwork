@@ -3,7 +3,9 @@
     <string name="feat_login_welcome">Welcome to TheSocialNetwork</string>
     <string name="feat_login_subtitle">Please Sign-in to continue</string>
     <string name="feat_search_friends_title">Search a friend</string>
-    <string name="feat_main_hello_world">Hello world!</string>
+    <string name="feat_main_login_activity">Login Activity</string>
+    <string name="feat_main_register_activity">Register Activity</string>
+    <string name="feat_main_feat_activity">Feat Activity</string>
     <string name="feat_main_goodbye_world">Good by world!</string>
     <string name="feat_login_new_to_social_network">New to The Social Network?</string>
     <string name="feat_login_register">Register</string>
@@ -22,7 +24,7 @@
     <string name="word_to_search1">Terms &amp; Conditions</string>
     <string name="word_to_search2">Privacy Policy</string>
     <string name="src_for_signup">https://google.com</string>
-
+    <string name="feat_feat_image">Image Color</string>
     <string name="feat_signup_image_content_description">Image of person registering</string>
     <string name="feat_signup_password">Password</string>
     <string name="feat_signup_email">Email</string>

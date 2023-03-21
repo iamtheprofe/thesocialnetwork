@@ -16,13 +16,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.thesocialnetwork.R
+import com.example.thesocialnetwork.data.repository.DefaultRegisterRepository
 import com.example.thesocialnetwork.login.LoginActivity
+import com.example.thesocialnetwork.model.RegisterData
 import com.google.android.material.textfield.TextInputEditText
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class SignUpActivity : AppCompatActivity() {
+    private val repository = DefaultRegisterRepository()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -47,15 +51,34 @@ class SignUpActivity : AppCompatActivity() {
                 textPassword.text.toString(),
                 textConfirmPassword.text.toString()
             )
+            val cleanTextEmail = textEmail.text.toString()
+            val cleanTextPassword = textPassword.text.toString()
+
+            var register: RegisterData
+
             if (fields[0] && fields[1]) {
-                val retrofit = Retrofit.Builder()
-                    .baseUrl("https://example.com/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-                Toast.makeText(this, "Good job you are register", Toast.LENGTH_LONG).show()
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        register = repository.register(cleanTextEmail, cleanTextPassword)
+
+                        CoroutineScope(Dispatchers.Main).launch {
+                            message(register.token)
+                        }
+                    } catch (e: java.lang.Exception) {
+                        CoroutineScope(Dispatchers.Main).launch {
+                            message("No data found or service down")
+                        }
+
+                    }
+                }
+
 
             } else Toast.makeText(this, "incorrect data", Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun message(token: String) {
+        Toast.makeText(this, token, Toast.LENGTH_SHORT).show()
     }
 
     //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -75,11 +98,6 @@ class SignUpActivity : AppCompatActivity() {
         arrayList.add(checkPasswords)
         return arrayList
     }
-
-
-    data class ApiResponse(
-        val message: String
-    )
 
 
     private fun clickableLink(longText: String) {

@@ -47,7 +47,7 @@
             android:id="@+id/google"
             style="@style/TheSocialNetwork.Widget.Button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/button_standard"
             android:layout_marginBottom="@dimen/space_large"
             android:gravity="center"
             android:paddingHorizontal="@dimen/space_large"

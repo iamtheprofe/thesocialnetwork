@@ -1,7 +1,7 @@
 package com.example.thesocialnetwork.data.repository
 
-import com.example.thesocialnetwork.models.Register
+import com.example.thesocialnetwork.model.RegisterData
 
 interface RegisterRepository {
-    fun sendData(email: String, password: String):Register
+    suspend fun register(email: String, password: String): RegisterData
 }
