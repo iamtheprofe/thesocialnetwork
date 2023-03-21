@@ -96,7 +96,7 @@ fun main() {
     )
 
     val streamPost = Post(
-        PostType.Stream,
+        PostType.Ad,
         arrayListOf(
             Reactions.Hearth,
             Reactions.Like,
@@ -135,9 +135,9 @@ enum class DogBreed {
 }
 
 enum class PostType {
-    Link,
-    Stream,
-    Suggestion
+    Text,
+    Image,
+    Ad
 }
 
 enum class Reactions {
@@ -148,7 +148,9 @@ enum class Reactions {
 
 data class Post(
     val type: PostType,
-    val reactions: ArrayList<Reactions>
+    val reactions: List<Reactions> = emptyList(),
+    val text: String? = null,
+    val image: Int? = null
 )
 
 

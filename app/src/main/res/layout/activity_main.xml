@@ -29,5 +29,11 @@
         android:layout_height="wrap_content"
         android:text="@string/feat_main_reset_password" />
 
+    <Button
+        android:id="@+id/feed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feat_main_feed" />
+
 
 </LinearLayout>

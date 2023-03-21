@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.thesocialnetwork.feed.FeedActivity
 import com.example.thesocialnetwork.forgotPassword.ForgotPasswordActivity
 import com.example.thesocialnetwork.login.LoginActivity
 import com.example.thesocialnetwork.resetPassword.ResetPasswordActivity
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.resetPassword).setOnClickListener {
             startActivity(Intent(this, ResetPasswordActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.feed).setOnClickListener {
+            startActivity(Intent(this, FeedActivity::class.java))
         }
     }
 }
