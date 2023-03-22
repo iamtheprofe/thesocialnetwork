@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< Updated upstream
 
     <color name="colorAccent">#0065FE</color>
 
@@ -14,4 +15,11 @@
     <color name="textLink">@color/colorAccent</color>
     <color name="backgroundColorGoogle">#F0F4F5</color>
     <color name="separator">#E4E4E4</color>
+=======
+    <color name="textTitlePrimary">#830002</color>
+    <color name="submit_button">#FF0065FE</color>
+    <color name="text_hint_email">#FFD6D9DE</color>
+    <color name="scroll_bar_bottom">#9B9C9E</color>
+    <color name="color_accent_activated">#0165B5</color>
+>>>>>>> Stashed changes
 </resources>

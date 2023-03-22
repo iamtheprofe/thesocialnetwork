@@ -24,4 +24,24 @@
         <item name="android:textSize">@dimen/text_size_forgot_password</item>
     </style>
 
+    <style name="TheSocialNetwork.TextStyle.TextEmailStyle">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="fontFamily">@font/redhatdisplayregular</item>
+
+    </style>
+
+    <style name="TheSocialNetwork.ButtonEmailStyle">
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/redhatdisplayregular</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="hintTextAppearance">@style/TheSocialNetwork.TextStyle.TextEmailStyle</item>
+        <item name="hintTextColor">@color/text_hint_email</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/color_accent_activated</item>
+        <item name="colorControlHighlight">@color/color_accent_activated</item>
+        <item name="hintEnabled">true</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
 </resources>
