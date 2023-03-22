@@ -38,20 +38,25 @@ class LoginActivity : AppCompatActivity() {
                     runOnUiThread {
                         Toast.makeText(
                             applicationContext,
-                            "email or password are incorrect",
+                            "an error has occurred with the server",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
 
                 override fun onResponse(call: Call, response: Response) {
-                    runOnUiThread{
-                        Toast.makeText(applicationContext, "successful login ", Toast.LENGTH_SHORT)
-                        .show()
+                    if (response.isSuccessful) {
+                        runOnUiThread {
+                            Toast.makeText(applicationContext,"successful login ", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        runOnUiThread {
+                            Toast.makeText(applicationContext, "email or password are incorrect", Toast.LENGTH_SHORT).show()
+                        }
                     }
 
-                }
-            })
+                    }
+                })
+            }
         }
     }
-}
