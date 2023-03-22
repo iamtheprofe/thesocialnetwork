@@ -1,11 +1,14 @@
 package com.example.thesocialnetwork.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.thesocialnetwork.R
+import com.example.thesocialnetwork.signup.SignUpActivity
 import com.google.android.material.textfield.TextInputEditText
 
 class LoginActivity: AppCompatActivity() {
@@ -18,7 +21,11 @@ class LoginActivity: AppCompatActivity() {
         login.setOnClickListener {
             handleLogin()
         }
-
+        val singUp = findViewById<TextView>(R.id.register)
+        singUp.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
         Toast.makeText(this, "This is onCreate", Toast.LENGTH_SHORT).show()
 
     }

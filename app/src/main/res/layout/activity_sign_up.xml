@@ -1,6 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    tools:context=".signup.SignUpActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_large"
+
+        android:layout_marginBottom="@dimen/space_medium"
+        android:contentDescription="@string/feat_signup_image_content_description"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_signup"
+        app:layout_constraintBottom_toTopOf="@+id/form"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/form"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/joinedUsBefore"
+            style="@style/TheSocialNetwork.TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/feat_signup_joined_us_before"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/login"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/login"
+            style="@style/TheSocialNetwork.TextStyle.Link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_small"
+            android:text="@string/feat_signup_login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/joinedUsBefore" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/continue1"
+            style="@style/TheSocialNetwork.Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_large"
+            android:layout_marginBottom="@dimen/space_large"
+            android:text="@string/feat_signup_continue"
+            app:layout_constraintBottom_toTopOf="@id/joinedUsBefore" />
+
+        <TextView
+            android:id="@+id/termsAndConditions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_medium"
+            android:layout_marginBottom="@dimen/space_large"
+            app:layout_constraintBottom_toTopOf="@id/continue1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirmPasswordLayout"
+            style="@style/TheSocialNetwork.Widget.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_large"
+            android:hint="@string/feat_signup_confirm_password"
+            app:layout_constraintBottom_toTopOf="@id/termsAndConditions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:startIconDrawable="@drawable/ic_lock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirmPassword"
+                style="@style/TheSocialNetwork.Widget.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_small"
+                android:inputType="textPassword" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLayout"
+            style="@style/TheSocialNetwork.Widget.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_medium"
+            android:layout_marginBottom="@dimen/space_small"
+            android:hint="@string/feat_signup_password"
+            app:layout_constraintBottom_toTopOf="@id/confirmPasswordLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:startIconDrawable="@drawable/ic_lock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                style="@style/TheSocialNetwork.Widget.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_small"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailLayout"
+            style="@style/TheSocialNetwork.Widget.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_medium"
+            android:layout_marginBottom="@dimen/space_small"
+            android:hint="@string/feat_signup_email"
+            app:layout_constraintBottom_toTopOf="@id/passwordLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:startIconDrawable="@drawable/ic_arroba">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                style="@style/TheSocialNetwork.Widget.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_small"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

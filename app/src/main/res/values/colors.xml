@@ -10,7 +10,7 @@
 
     <color name="colorAccent">#0065FE</color>
 
-    <color name="textPrimary">#1F1F1F</color>
+    <color name="textTitlePrimary">#1F1F1F</color>
     <color name="textLink">@color/colorAccent</color>
     <color name="backgroundColorGoogle">#F0F4F5</color>
     <color name="separator">#E4E4E4</color>

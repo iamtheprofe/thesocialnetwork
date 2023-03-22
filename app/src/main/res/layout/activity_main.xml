@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/space_small">
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/feat_main_login" />
+        android:layout_margin="@dimen/space_medium"
+        android:text="@string/feat_main_login_activity"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/signUp"
+        android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/feat_main_sign_up" />
-
+        android:layout_margin="@dimen/space_medium"
+        android:text="@string/feat_main_register_activity"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
     <Button
-        android:id="@+id/forgotPassword"
+        android:id="@+id/feed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/feat_main_forgot_password" />
+        android:layout_margin="@dimen/space_medium"
+        android:text="@string/feat_main_feat_activity"
+        app:layout_constraintTop_toBottomOf="@+id/register" />
 
-    <Button
-        android:id="@+id/resetPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/feat_main_reset_password" />
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

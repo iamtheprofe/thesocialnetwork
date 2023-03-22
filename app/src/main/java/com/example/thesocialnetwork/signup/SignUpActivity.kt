@@ -1,13 +1,172 @@
 package com.example.thesocialnetwork.signup
 
+import android.content.Intent
+import android.graphics.Paint
+import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.text.style.TextAppearanceSpan
+import android.util.Patterns
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import com.example.thesocialnetwork.R
+import com.example.thesocialnetwork.data.repository.DefaultRegisterRepository
+import com.example.thesocialnetwork.login.LoginActivity
+import com.example.thesocialnetwork.model.RegisterData
+import com.google.android.material.textfield.TextInputEditText
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
 
 class SignUpActivity : AppCompatActivity() {
-
+    private val repository = DefaultRegisterRepository()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+
+
+//-------------------------------------------------------------------------------------------------------------
+        val login = findViewById<TextView>(R.id.login)
+        val completeText = resources.getString(R.string.feat_signup_privacy_policy)
+        clickableLink(completeText)
+        login.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        //-----------------------------------------------------------------------------------------------------------------------------
+        val continueButton = findViewById<AppCompatButton>(R.id.continue1)
+        continueButton.setOnClickListener {
+            val textEmail = findViewById<TextInputEditText>(R.id.email)
+            val textPassword = findViewById<TextInputEditText>(R.id.password)
+            val textConfirmPassword = findViewById<TextInputEditText>(R.id.confirmPassword)
+            val fields = checkFields(
+                textEmail.text.toString(),
+                textPassword.text.toString(),
+                textConfirmPassword.text.toString()
+            )
+            val cleanTextEmail = textEmail.text.toString()
+            val cleanTextPassword = textPassword.text.toString()
+
+            var register: RegisterData
+
+            if (fields[0] && fields[1]) {
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        register = repository.register(cleanTextEmail, cleanTextPassword)
+
+                        CoroutineScope(Dispatchers.Main).launch {
+                            message(register.token)
+                        }
+                    } catch (e: java.lang.Exception) {
+                        CoroutineScope(Dispatchers.Main).launch {
+                            message("No data found or service down")
+                        }
+
+                    }
+                }
+
+
+            } else Toast.makeText(this, "incorrect data", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun message(token: String) {
+        Toast.makeText(this, token, Toast.LENGTH_SHORT).show()
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------
+    private fun checkFields(
+        email: String,
+        password: String,
+        confirmPassword: String
+    ): ArrayList<Boolean> {
+        val arrayList = ArrayList<Boolean>()
+        val cleanEmail = email.trim().lowercase()
+        val cleanPassword = password.trim().lowercase()
+        val cleanConfirmPassword = confirmPassword.trim().lowercase()
+        val checkEmail =
+            Patterns.EMAIL_ADDRESS.matcher(cleanEmail).matches()
+        val checkPasswords = cleanPassword == cleanConfirmPassword
+        arrayList.add(checkEmail)
+        arrayList.add(checkPasswords)
+        return arrayList
+    }
+
+
+    private fun clickableLink(longText: String) {
+        try {
+            val wordToSearch = resources.getString(R.string.word_to_search1)
+            val wordToSearch2 = resources.getString(R.string.word_to_search2)
+            val textStyleForLinks2 =
+                TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
+            val textStyleForLinks =
+                TextAppearanceSpan(this, R.style.TheSocialNetwork_TextStyle_Link)
+            val spannableString = SpannableStringBuilder(longText)
+            val startPosition = spannableString.indexOf(wordToSearch)
+            val endPosition = spannableString.indexOf(wordToSearch) + wordToSearch.length
+            val startPosition2 = spannableString.indexOf(wordToSearch2)
+            val endPosition2 = spannableString.indexOf(wordToSearch2) + wordToSearch2.length
+
+            val clickableSpan: ClickableSpan = object : ClickableSpan() {
+                override fun onClick(widget: View) {
+                    val intent = Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse(resources.getString(R.string.src_for_signup))
+                    )
+                    startActivity(intent)
+
+                }
+            }
+            val clickableSpan2: ClickableSpan = object : ClickableSpan() {
+                override fun onClick(widget: View) {
+                    toast()
+                }
+            }
+
+            spannableString.setSpan(
+                clickableSpan,
+                startPosition,
+                endPosition,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            spannableString.setSpan(
+                clickableSpan2,
+                startPosition2,
+                endPosition2,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+
+            val termsAndConditions = findViewById<TextView>(R.id.termsAndConditions)
+            spannableString.setSpan(
+                textStyleForLinks,
+                startPosition,
+                endPosition,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            spannableString.setSpan(
+                textStyleForLinks2,
+                startPosition2,
+                endPosition2,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            termsAndConditions.text = spannableString
+            termsAndConditions.movementMethod = LinkMovementMethod.getInstance()
+            termsAndConditions.paintFlags =
+                termsAndConditions.paintFlags and Paint.UNDERLINE_TEXT_FLAG.inv()
+
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun toast() {
+        Toast.makeText(this, "you touch me mother fucker ", Toast.LENGTH_LONG).show()
     }
 }
