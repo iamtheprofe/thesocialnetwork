@@ -10,6 +10,7 @@
     <string name="feat_main_sign_up">Sign Up</string>
     <string name="feat_main_forgot_password">Forgot password</string>
     <string name="feat_main_reset_password">Reset password</string>
+    <string name="feat_main_reset_feed">Feed</string>
 
     <string name="feat_login_new_to_social_network">New to The Social Network?</string>
     <string name="feat_login_register">Register</string>
@@ -33,4 +34,6 @@
     <string name="feat_sign_up_sign_up">Sign Up</string>
     <string name="feat_sign_up_email_error">Please enter a valid email</string>
     <string name="feat_sign_up_full_name_error">Please enter your name</string>
+
+    <string name="feat_feed_content_description_post_image">Post image</string>
 </resources>

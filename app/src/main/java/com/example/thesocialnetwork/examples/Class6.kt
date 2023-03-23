@@ -94,23 +94,6 @@ fun main() {
     println(
         Brand.Samsung.brandInLowerCase()
     )
-
-    val streamPost = Post(
-        PostType.Stream,
-        arrayListOf(
-            Reactions.Hearth,
-            Reactions.Like,
-            Reactions.Hearth,
-            Reactions.Like,
-            Reactions.Dislike,
-            Reactions.Hearth,
-            Reactions.Like,
-            Reactions.Hearth,
-            Reactions.Like,
-            Reactions.Dislike
-        )
-    )
-    println(streamPost)
 }
 
 
@@ -146,9 +129,19 @@ enum class Reactions {
     Dislike
 }
 
+data class User(
+    val fullName: String? = null,
+    val profilePicture: String? = null
+)
+
+data class Creator(
+    val user: User
+)
+
 data class Post(
-    val type: PostType,
-    val reactions: ArrayList<Reactions>
+    val id: String,
+    val text: String? = null,
+    val creator: Creator
 )
 
 
