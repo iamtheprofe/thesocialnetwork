@@ -42,4 +42,6 @@
     <string name="feat_reset_password_new_password">New password</string>
     <string name="feat_reset_password_reset">Reset</string>
     <string name="feat_forgot_password_invalid_email_mobile">Invalid Email or Mobile Number</string>
+    <string name="feat_main_reset_feed">Feed</string>
+    <string name="feat_feed_content_description_post_image">Post image</string>
 </resources>
