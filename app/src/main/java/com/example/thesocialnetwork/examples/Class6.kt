@@ -95,7 +95,22 @@ fun main() {
         Brand.Samsung.brandInLowerCase()
     )
 
-
+    val streamPost = Post(
+        PostType.Ad,
+        arrayListOf(
+            Reactions.Hearth,
+            Reactions.Like,
+            Reactions.Hearth,
+            Reactions.Like,
+            Reactions.Dislike,
+            Reactions.Hearth,
+            Reactions.Like,
+            Reactions.Hearth,
+            Reactions.Like,
+            Reactions.Dislike
+        )
+    )
+    println(streamPost)
 }
 
 
@@ -121,7 +136,8 @@ enum class DogBreed {
 
 enum class PostType {
     Text,
-    Image
+    Image,
+    Ad
 }
 
 enum class Reactions {
@@ -131,7 +147,10 @@ enum class Reactions {
 }
 
 data class Post(
-    val type: PostType
+    val type: PostType,
+    val reactions: List<Reactions> = emptyList(),
+    val text: String? = null,
+    val image: Int? = null
 )
 
 

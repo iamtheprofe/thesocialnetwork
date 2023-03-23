@@ -8,24 +8,27 @@ import com.example.thesocialnetwork.Post
 import com.example.thesocialnetwork.PostType
 import com.example.thesocialnetwork.R
 
+
 class FeedActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed)
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
         val adapter = FeedAdapter(
             posts = listOf(
-                Post(PostType.Text),
-                Post(PostType.Text),
-                Post(PostType.Image),
-                Post(PostType.Text),
-                Post(PostType.Image)
+                Post(type = PostType.Text, text = "Lord alvarado es una riata"),
+                Post(type = PostType.Text, text = "El diegomaxter se rifo con 20k puntos de canal"),
+                Post(type = PostType.Image, image = R.drawable.ic_google),
+                Post(type = PostType.Text, text = "El shadow se la come y el kevin también"),
+                Post(type = PostType.Image, image = R.drawable.ic_arroba),
             )
-
         )
 
-
+        recyclerView.adapter = adapter
     }
 }

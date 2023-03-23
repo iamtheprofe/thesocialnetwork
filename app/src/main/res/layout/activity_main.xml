@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/space_small">
 
     <Button
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/space_medium"
-        android:text="@string/feat_main_login_activity"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/feat_main_login" />
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/signUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/space_medium"
-        android:text="@string/feat_main_register_activity"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        android:text="@string/feat_main_sign_up" />
+
+    <Button
+        android:id="@+id/forgotPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feat_main_forgot_password" />
+
+    <Button
+        android:id="@+id/resetPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feat_main_reset_password" />
+
     <Button
         android:id="@+id/feed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/space_medium"
-        android:text="@string/feat_main_feat_activity"
-        app:layout_constraintTop_toBottomOf="@+id/register" />
+        android:text="@string/feat_main_feed" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

@@ -60,9 +60,8 @@ class SignUpActivity : AppCompatActivity() {
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
                         register = repository.register(cleanTextEmail, cleanTextPassword)
-
                         CoroutineScope(Dispatchers.Main).launch {
-                            message(register.token)
+                            message(register.token +" id: " + register.id)
                         }
                     } catch (e: java.lang.Exception) {
                         CoroutineScope(Dispatchers.Main).launch {
