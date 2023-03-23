@@ -75,11 +75,17 @@ class LoginActivity : AppCompatActivity() {
                     val responseString = response.body?.string()
                     Log.d("API RESPONSE", responseString ?: "")
                     runOnUiThread {
-                        Toast.makeText(
+                        if (response.isSuccessful) {
+                            Toast.makeText(
+                                this@LoginActivity,
+                                getString(R.string.feat_sign_up_correct_credentials),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else( Toast.makeText(
                             this@LoginActivity,
-                            getString(R.string.feat_sign_up_correct_credentials),
+                            getString(R.string.feat_login_user_name_not_found),
                             Toast.LENGTH_SHORT
-                        ).show()
+                        ).show())
                     }
                 }
             })
