@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.thesocialnetwork.R
+import com.example.thesocialnetwork.commons.isValidEmail
 import com.google.android.material.textfield.TextInputEditText
 
 class LoginActivity: AppCompatActivity() {
@@ -27,7 +28,7 @@ class LoginActivity: AppCompatActivity() {
         val email = findViewById<TextInputEditText>(R.id.email)
         val password = findViewById<TextInputEditText>(R.id.password)
 
-        val isValidEmail = isValidEmail(email.text.toString())
+        val isValidEmail = isValidEmailForLogin(email.text.toString())
         val isValidPassword = isValidPassword(password.text.toString())
 
         if (isValidEmail && isValidPassword) {
@@ -37,9 +38,9 @@ class LoginActivity: AppCompatActivity() {
         }
     }
 
-    private fun isValidEmail(email: String): Boolean {
+    private fun isValidEmailForLogin(email: String): Boolean {
         val cleanEmail = email.trim().lowercase()
-        return Patterns.EMAIL_ADDRESS.matcher(cleanEmail).matches() && cleanEmail == "daniel@test.io"
+        return isValidEmail(cleanEmail) && cleanEmail == "daniel@test.io"
     }
 
     private fun isValidPassword(password: String): Boolean {

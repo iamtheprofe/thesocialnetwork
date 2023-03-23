@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/space_small"
-        android:contentDescription="@null"
+        android:contentDescription="@string/feat_sign_up_sign_up"
         android:scaleType="fitCenter"
-        android:src="@drawable/img_social_illustration"
+        android:src="@drawable/img_sign_up"
         app:layout_constraintBottom_toTopOf="@+id/form"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,10 +36,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/space_medium"
             android:hint="@string/feat_sign_up_email"
-            app:layout_constraintBottom_toTopOf="@id/fullNameInputLayout"
+            app:layout_constraintBottom_toTopOf="@id/fullNameTextInputLayout"
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,16 +48,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fullNameInputLayout"
+            android:id="@+id/fullNameTextInputLayout"
             style="@style/TheSocialNetwork.Widget.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/space_medium"
             android:hint="@string/feat_sign_up_full_name"
             app:layout_constraintBottom_toTopOf="@id/mobileInputLayout"
-            app:startIconDrawable="@drawable/ic_email">
+            app:startIconDrawable="@drawable/ic_user">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullName"
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -70,9 +72,10 @@
             android:layout_marginBottom="@dimen/space_large"
             android:hint="@string/feat_sign_up_mobile"
             app:layout_constraintBottom_toTopOf="@id/termsConditionsPrivacy"
-            app:startIconDrawable="@drawable/ic_google">
+            app:startIconDrawable="@drawable/ic_phone">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobile"
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

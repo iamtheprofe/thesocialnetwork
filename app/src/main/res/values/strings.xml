@@ -31,4 +31,6 @@
     <string name="feat_sign_up_full_name">Full Name</string>
     <string name="feat_sign_up_mobile">Mobile</string>
     <string name="feat_sign_up_sign_up">Sign Up</string>
+    <string name="feat_sign_up_email_error">Please enter a valid email</string>
+    <string name="feat_sign_up_full_name_error">Please enter your name</string>
 </resources>
