@@ -9,30 +9,25 @@ import com.example.thesocialnetwork.Post
 import com.example.thesocialnetwork.R
 
 class FeedAdapter(
-    private val posts: List<Post>
-) : RecyclerView.Adapter<FeedAdapter.PostViewHolder>() {
+  private val posts:List<Post>
+) :RecyclerView.Adapter<FeedAdapter.PostViewHolderText>(){
+    class PostViewHolderText(view: View): RecyclerView.ViewHolder(view) {
 
-    class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val postTextView = view.findViewById<TextView>(R.id.post)
-        private val creatorTextView = view.findViewById<TextView>(R.id.creator)
-
-        fun bind(post: Post) {
-            postTextView.text = post.text
-            creatorTextView.text = post.creator.user.fullName
-        }
     }
+// CreateViewHolder sirve para llenar la vista reciclada con los datos del post
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolderText {
+// Para crear la vista de view holder usamos la clas layoutinflater() predeterminada
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false)
-        return PostViewHolder(view)
+    val view =LayoutInflater.from(parent.context).inflate(R.layout.item_text_post, parent, false)
+    return PostViewHolderText(view)
     }
 
     override fun getItemCount(): Int {
         return posts.size
+
     }
 
-    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        val post = posts[position]
-        holder.bind(post)
+    override fun onBindViewHolder(holder: PostViewHolderText, position: Int) {
+        TODO("Not yet implemented")
     }
 }
