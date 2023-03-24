@@ -18,4 +18,6 @@
         <item name="android:textColor">@color/textLink</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+
 </resources>

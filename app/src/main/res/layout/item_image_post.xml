@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,7 +13,7 @@
         android:contentDescription="@string/feat_feed_content_description_post_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars[0]" />
+        android:src="@tools:sample/avatars[5]" />
 
     <TextView
         android:id="@+id/creator"
@@ -33,8 +32,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/space_small"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/publicationPicture"
         app:layout_constraintStart_toEndOf="@id/profilePicture"
-        app:layout_constraintTop_toBottomOf="@+id/creator"
-        tools:text="Lorem ipsum" />
+        app:layout_constraintTop_toBottomOf="@id/creator"
+        tools:text="Imagen description" />
+
+
+    <ImageView
+        android:id="@+id/publicationPicture"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_small"
+        android:contentDescription="@string/feat_feed_content_description_publication_image"
+        app:layout_constraintStart_toStartOf="@id/post"
+        app:layout_constraintTop_toBottomOf="@id/post"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@tools:sample/avatars[2]" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

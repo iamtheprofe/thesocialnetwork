@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,7 +13,7 @@
         android:contentDescription="@string/feat_feed_content_description_post_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars[0]" />
+        tools:src="https://acortar.link/yZZ4JP" />
 
     <TextView
         android:id="@+id/creator"
@@ -33,8 +32,34 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/space_small"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/publicationText"
         app:layout_constraintStart_toEndOf="@id/profilePicture"
-        app:layout_constraintTop_toBottomOf="@+id/creator"
-        tools:text="Lorem ipsum" />
+        app:layout_constraintTop_toBottomOf="@id/creator"
+        tools:text="Text Publication" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/publicationText"
+        style="@style/TheSocialNetwork.Widget.TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_small"
+       android:hint="@string/feat_feed_content_hint_publication_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/post"
+        app:layout_constraintTop_toBottomOf="@id/post"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/TheSocialNetwork.Widget.TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            app:layout_constraintStart_toStart="@id/post"
+            app:layout_constraintTop_toBottomOf="@id/post"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

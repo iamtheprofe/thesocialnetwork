@@ -18,6 +18,7 @@ class FeedActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = FeedAdapter()
 
         val posts = arrayListOf<Post>()
         (0..500).forEach {

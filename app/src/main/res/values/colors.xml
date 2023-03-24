@@ -14,4 +14,5 @@
     <color name="textLink">@color/colorAccent</color>
     <color name="backgroundColorGoogle">#F0F4F5</color>
     <color name="separator">#E4E4E4</color>
+
 </resources>
