@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/space_small">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/creator"
+        style="@style/TheSocialNetwork.TextStyle.Title"
+        tools:text = "EXAMPLE"
+        app:layout_constraintStart_toEndOf="@id/profilePicture"
+        android:layout_marginStart="@dimen/space_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </TextView>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/post"
+        app:layout_constraintTop_toBottomOf="@id/creator"
+        tools:text = "example"
+        app:layout_constraintStart_toEndOf ="@id/profilePicture"
+        android:layout_marginStart="@dimen/space_small"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </TextView>
+
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/profilePicture"
+        android:contentDescription="@string/feat_feed_profile_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars">
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/space_medium"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:id="@+id/image"
+        tools:src="@tools:sample/backgrounds/scenic"
+        app:layout_constraintTop_toBottomOf="@id/post"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="H,16:9"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

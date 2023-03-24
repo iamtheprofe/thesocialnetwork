@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.thesocialnetwork.Creator
-import com.example.thesocialnetwork.Post
-import com.example.thesocialnetwork.R
-import com.example.thesocialnetwork.User
+import com.example.thesocialnetwork.*
 
 class FeedActivity : AppCompatActivity() {
 
@@ -18,23 +15,20 @@ class FeedActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-
-        val posts = arrayListOf<Post>()
-        (0..500).forEach {
-            posts.add(
+        recyclerView.adapter = FeedAdapter(
+            posts = listOf(
                 Post(
-                    id = it.toString(),
-                    text = "Muri se la come ${it + 1} veces",
-                    creator = Creator(
-                        user = User(
-                            fullName = "Daniel Garcia"
-                        )
-                    )
+                    type = PostType.Image,
+                    creator = Creator(user = User(fullName = "Daniel Garcia Alvarado", profilePicture ="https://picsum.photos/200")),
+                    image = "https://dummyimage.com/300x200/000/fff",
+                    text = "I REALLY LIKE DICK"
+                ),
+                Post(
+                    type = PostType.Text,
+                    text = "This is an example for post text",
+                    creator = Creator(user = User(profilePicture = "https://picsum.photos/200", fullName = "Daniel Garcia Alvarado")),
                 )
             )
-        }
-        recyclerView.adapter = FeedAdapter(
-            posts = posts
         )
     }
 }

@@ -81,7 +81,7 @@ class LoginActivity : AppCompatActivity() {
                                 getString(R.string.feat_sign_up_correct_credentials),
                                 Toast.LENGTH_SHORT
                             ).show()
-                        } else( Toast.makeText(
+                        } else (Toast.makeText(
                             this@LoginActivity,
                             getString(R.string.feat_login_user_name_not_found),
                             Toast.LENGTH_SHORT
