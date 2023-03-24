@@ -10,7 +10,6 @@
     <string name="feat_main_sign_up">Sign Up</string>
     <string name="feat_main_forgot_password">Forgot password</string>
     <string name="feat_main_reset_password">Reset password</string>
-    <string name="feat_main_reset_feed">Feed</string>
 
     <string name="feat_login_new_to_social_network">New to The Social Network?</string>
     <string name="feat_login_register">Register</string>
@@ -21,5 +20,30 @@
     <string name="feat_login_hint_password">Password</string>
     <string name="feat_login_hint_email">Email</string>
     <string name="feat_login_title">Login</string>
+    <string name="joined_us_before">Joined us before?</string>
+    <string name="feat_sign_up_login">Login</string>
+    <string name="feat_sign_up_continue">Continue</string>
+    <string name="feat_sign_up_privacy_policy">Privacy Policy</string>
+    <string name="feat_sign_up_and">and</string>
+    <string name="feat_sign_up_agreement">By signing up, you´re agree to our Terms &amp; Conditions and Privacy Policy</string>
+    <string name="feat_sign_up_mobile">Mobile</string>
+    <string name="feat_sign_up_sign_up">Sign up</string>
+    <string name="feat_sign_up_full_name">Full name</string>
+    <string name="feat_signup_privacy_policy">Privacy Policy</string>
+    <string name="feat_sign_up_terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="feat_sign_up_correct_credentials">Credentials are correct</string>
+    <string name="feat_sign_up_incorrect_credentials">Credentials are incorrect,please check them</string>
+    <string name="feat_forgot_password_submit">Submit</string>
+    <string name="feat_forgot_password_email_mobile">Email ID/Mobile number</string>
+    <string name="feat_forgot_password_password">Password?</string>
+    <string name="feat_forgot_password_do_not_worry_message">Don´t Worry! it happens. Please entre the address associated with your account.</string>
+    <string name="feat_forgot_password_forgot">Forgot</string>
+    <string name="feat_reset_password_confirm_new_password">Confirm new password</string>
+    <string name="feat_reset_password_new_password">New password</string>
+    <string name="feat_reset_password_reset">Reset</string>
+    <string name="feat_forgot_password_invalid_email_mobile">Invalid Email or Mobile Number</string>
+    <string name="feat_main_reset_feed">Feed</string>
     <string name="feat_feed_content_description_post_image">Post image</string>
+    <string name="feat_login_user_name_not_found">username does not exist</string>
+    <string name="feat_feed_profile_picture">Profile picture</string>
 </resources>

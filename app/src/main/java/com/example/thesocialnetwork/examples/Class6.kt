@@ -118,9 +118,8 @@ enum class DogBreed {
 }
 
 enum class PostType {
-    Link,
-    Stream,
-    Suggestion
+    Image,
+    Text,
 }
 
 enum class Reactions {
@@ -139,9 +138,11 @@ data class Creator(
 )
 
 data class Post(
-    val id: String,
+    val id: String? = null,
     val text: String? = null,
-    val creator: Creator
+    val creator: Creator? = null,
+    val type: PostType,
+    val image: String? = null,
 )
 
 
