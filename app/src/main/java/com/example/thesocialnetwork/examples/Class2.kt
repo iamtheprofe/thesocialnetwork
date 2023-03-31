@@ -1,4 +1,4 @@
-package com.example.thesocialnetwork
+package com.example.thesocialnetwork.examples
 
 fun main2() {
     println("Hello world!")
