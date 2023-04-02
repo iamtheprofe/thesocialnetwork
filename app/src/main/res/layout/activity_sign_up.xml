@@ -42,7 +42,7 @@
             android:layout_marginBottom="@dimen/space_medium"
             android:hint="@string/feat_login_hint_email"
             app:endIconMode="clear_text"
-            app:layout_constraintBottom_toTopOf="@id/fullNameInputLayout"
+            app:layout_constraintBottom_toTopOf="@id/passwordInputLayout"
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -54,42 +54,44 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fullNameInputLayout"
+            android:id="@+id/passwordInputLayout"
             style="@style/TheSocialNetwork.Widget.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/space_medium"
-            android:hint="@string/feat_sign_up_full_name"
-            app:endIconMode="clear_text"
-            app:layout_constraintBottom_toTopOf="@id/mobileInputLayout"
-            app:startIconDrawable="@drawable/ic_email">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/fullName"
-                style="@style/TheSocialNetwork.Widget.TextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/mobileInputLayout"
-            style="@style/TheSocialNetwork.Widget.TextInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/space_xlarge"
-            android:hint="@string/feat_sign_up_mobile"
-            app:endIconMode="clear_text"
+            android:hint="@string/feat_login_hint_password"
             app:layout_constraintBottom_toTopOf="@id/agreement"
-            app:startIconDrawable="@drawable/ic_email">
+            app:startIconDrawable="@drawable/ic_password"
+            app:passwordToggleDrawable="@drawable/selector_password_toggle"
+            app:passwordToggleEnabled="true">
+
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/mobile"
+                android:id="@+id/password"
                 style="@style/TheSocialNetwork.Widget.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/mobileInputLayout"-->
+<!--            style="@style/TheSocialNetwork.Widget.TextInputLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="@dimen/space_xlarge"-->
+<!--            android:hint="@string/feat_sign_up_mobile"-->
+<!--            app:endIconMode="clear_text"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/agreement"-->
+<!--            app:startIconDrawable="@drawable/ic_email">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/mobile"-->
+<!--                style="@style/TheSocialNetwork.Widget.TextInputLayout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:inputType="textEmailAddress" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <TextView
             android:id="@+id/agreement"
