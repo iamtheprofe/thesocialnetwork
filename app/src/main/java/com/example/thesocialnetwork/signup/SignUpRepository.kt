@@ -9,8 +9,8 @@ class SignUpRepository {
     suspend fun signUp(email: String, fullName: String, mobile: String): String? {
         val jsonObject = JSONObject()
         jsonObject.put("email", email)
-        jsonObject.put("full name", fullName)
-        jsonObject.put("mobile", mobile)
+        jsonObject.put("password", fullName)
+       //TODO jsonObject.put("mobile", mobile)
 
         val jsonBody = jsonObject.toString()
 

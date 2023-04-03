@@ -40,7 +40,7 @@ class SignUpViewModel(
         val isValidName = isValidName(fullName)
         val isValidMobile = isValidMobile(mobile)
 
-        if (isValidEmail && isValidName && isValidMobile) {
+        if (isValidEmail && isValidName ) {
             viewModelScope.launch(Dispatchers.IO) {
                 val token = signUpRepository.signUp(
                     email.trim().lowercase(),
@@ -51,12 +51,12 @@ class SignUpViewModel(
                     println("Error, the token is null")
                 } else {
                     println("Token: $token")
-                }
-            }
+                } }
         } else {
             _state.value = _state.value.copy(
                 error = RuntimeException("Invalid credentials")
             )
         }
+        println("HI COROUTINES")
     }
 }

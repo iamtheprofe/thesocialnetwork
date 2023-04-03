@@ -89,7 +89,7 @@ class SignUpActivity : AppCompatActivity() {
         val fullName = findViewById<TextInputEditText>(R.id.fullName)
         val mobile = findViewById<TextInputEditText>(R.id.mobile)
 
-        viewModel.signUp(email.text.toString(), fullName.text.toString(), mobile.text.toString())
+        viewModel.signUp(email.text.toString(), fullName.text.toString(),mobile.text.toString())
 
     }
 
