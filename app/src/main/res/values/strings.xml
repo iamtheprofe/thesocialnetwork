@@ -33,6 +33,10 @@
     <string name="feat_sign_up_terms_conditions"><![CDATA[Terms & Conditions]]></string>
     <string name="feat_sign_up_correct_credentials">Credentials are correct</string>
     <string name="feat_sign_up_incorrect_credentials">Credentials are incorrect,please check them</string>
+    <string name="feat_sign_up_error_invalid_credentials">Invalid credentials</string>
+    <string name="feat_sign_up_error_token_is_null">Error: the token is null</string>
+    <string name="feat_sign_up_error_invalid_email">Invalid email address</string>
+    <string name="feat_sign_up_error_invalid_password">Invalid password</string>
     <string name="feat_forgot_password_submit">Submit</string>
     <string name="feat_forgot_password_email_mobile">Email ID/Mobile number</string>
     <string name="feat_forgot_password_password">Password?</string>

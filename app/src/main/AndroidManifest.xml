@@ -25,9 +25,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".login.LoginActivity" />
-        <activity android:name=".signup.SignUpActivity" />
-        <activity android:name=".forgotPassword.ForgotPasswordActivity" />
+        <activity android:name=".authentication.login.LoginActivity" />
+        <activity android:name=".authentication.signup.SignUpActivity" />
+        <activity android:name=".authentication.forgotPassword.ForgotPasswordActivity" />
         <activity android:name=".resetPassword.ResetPasswordActivity" />
         <activity android:name=".feed.FeedActivity" />
     </application>

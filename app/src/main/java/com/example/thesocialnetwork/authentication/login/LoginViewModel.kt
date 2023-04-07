@@ -1,8 +1,9 @@
-package com.example.thesocialnetwork.login
+package com.example.thesocialnetwork.authentication.login
 
 import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.thesocialnetwork.authentication.shared.repository.AuthRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,7 +15,7 @@ data class LoginState(
 )
 
 class LoginViewModel(
-    private val loginRepository: LoginRepository = LoginRepository()
+    private val authRepository: AuthRepository = AuthRepository()
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(LoginState())
@@ -36,7 +37,7 @@ class LoginViewModel(
 
         if (isValidEmail && isValidPassword) {
             viewModelScope.launch(Dispatchers.IO) {
-                val token = loginRepository.login(email.trim().lowercase(), password.trim())
+                val token = authRepository.login(email.trim().lowercase(), password.trim())
                 if (token == null) {
                     println("Error the token is null")
                 } else {

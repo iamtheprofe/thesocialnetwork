@@ -1,4 +1,4 @@
-package com.example.thesocialnetwork.forgotPassword
+package com.example.thesocialnetwork.authentication.forgotPassword
 
 import android.content.Intent
 import android.os.Bundle

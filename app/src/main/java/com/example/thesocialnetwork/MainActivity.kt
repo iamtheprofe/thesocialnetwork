@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.thesocialnetwork.feed.FeedActivity
-import com.example.thesocialnetwork.forgotPassword.ForgotPasswordActivity
-import com.example.thesocialnetwork.login.LoginActivity
+import com.example.thesocialnetwork.authentication.forgotPassword.ForgotPasswordActivity
+import com.example.thesocialnetwork.authentication.login.LoginActivity
 import com.example.thesocialnetwork.resetPassword.ResetPasswordActivity
-import com.example.thesocialnetwork.signup.SignUpActivity
+import com.example.thesocialnetwork.authentication.signup.SignUpActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
