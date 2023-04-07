@@ -1,4 +1,4 @@
-package com.example.thesocialnetwork.login
+package com.example.thesocialnetwork.authentication.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +11,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.thesocialnetwork.R
-import com.example.thesocialnetwork.forgotPassword.ForgotPasswordActivity
-import com.example.thesocialnetwork.signup.SignUpActivity
+import com.example.thesocialnetwork.authentication.forgotPassword.ForgotPasswordActivity
+import com.example.thesocialnetwork.authentication.signup.SignUpActivity
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

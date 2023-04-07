@@ -1,10 +1,11 @@
-package com.example.thesocialnetwork.signup
+package com.example.thesocialnetwork.authentication.signup
 
 import android.util.Patterns
 import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.thesocialnetwork.R
+import com.example.thesocialnetwork.authentication.shared.repository.AuthRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -18,7 +19,7 @@ data class RegisterState(
 )
 
 class SignUpViewModel(
-    private val signUpRepository: SignUpRepository = SignUpRepository()
+    private val authRepository: AuthRepository = AuthRepository()
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(RegisterState())
@@ -31,7 +32,7 @@ class SignUpViewModel(
 
             if (awaitAll(isValidEmail, isValidatePassword).any { !it }) return@launch
 
-            val response = signUpRepository.singUp(email, password)
+            val response = authRepository.singUp(email, password)
             if (response == null) {
                 _state.value = _state.value.copy(
                     error = R.string.feat_sign_up_error_token_is_null
