@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.thesocialnetwork.R
 import com.example.thesocialnetwork.resetPassword.ResetPasswordActivity
 import com.google.android.material.textfield.TextInputEditText
 
 class ForgotPasswordActivity : AppCompatActivity() {
+    private val viewModel : ForgotPasswordViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +28,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
         val emailMobile = findViewById<TextInputEditText>(R.id.emailMobile)
         val isValidEmailMobile = emailMobile.text.toString().trim().lowercase()
 
+
         if (isValidEmailMobile(isValidEmailMobile)) {
-            startActivity(Intent(this, ResetPasswordActivity::class.java))
+            viewModel.forgotPassword(emailMobile.text.toString())
         } else {
             Toast.makeText(this,
                 getString(R.string.feat_forgot_password_invalid_email_mobile),

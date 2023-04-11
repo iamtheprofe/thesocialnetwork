@@ -1,9 +1,7 @@
 package com.example.thesocialnetwork.authentication.shared.repository
 
 import com.example.thesocialnetwork.authentication.shared.AuthenticationModule
-import com.example.thesocialnetwork.authentication.shared.data.AuthenticationApi
-import com.example.thesocialnetwork.authentication.shared.data.LoginRequest
-import com.example.thesocialnetwork.authentication.shared.data.SignUpRequest
+import com.example.thesocialnetwork.authentication.shared.data.*
 
 class AuthRepository(
     private val api: AuthenticationApi = AuthenticationModule.provideAuthenticationApi()
@@ -31,4 +29,15 @@ class AuthRepository(
             null
         }
     }
+    suspend fun forgotPassword(emailMobile:String):String?{
+        val forgotPasswordRequets = ForgotPasswordRequest (emailMobile)
+        return try {
+            val response = api.forgotPassword(forgotPasswordRequets)
+            response.token
+        }catch (exception: Exception){
+            exception.printStackTrace()
+            null
+        }
+    }
+
 }
