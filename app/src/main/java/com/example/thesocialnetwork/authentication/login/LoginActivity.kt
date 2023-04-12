@@ -39,21 +39,37 @@ class LoginActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collectLatest { state ->
-                    if (state.isSuccess) {
-                        // TODO: Handle success state
-                    }
-                    state.error?.let {
-                        Toast.makeText(
-                            this@LoginActivity,
-                            getString(R.string.feat_sign_up_incorrect_credentials),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                    invalidate(state)
                 }
             }
         }
         Toast.makeText(this, "This is onCreate", Toast.LENGTH_SHORT).show()
 
+    }
+
+    private fun invalidate(state: LoginState) {
+        if (state.isLoading) {
+            // TODO: Launch loading dialog
+            Toast.makeText(
+                this,
+                R.string.feat_login_loading,
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            // TODO: If loading dialog is shown, cancel it
+        }
+        if (state.error != null) {
+            // TODO: Launch error alert
+            Toast.makeText(
+                this,
+                getString(R.string.feat_login_error, state.error.toString()),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        if (state.token != null) {
+            // TODO: Launch FeedActivity
+            finish()
+        }
     }
 
     private fun handleLogin() {

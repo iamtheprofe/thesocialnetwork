@@ -5,7 +5,7 @@ import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.thesocialnetwork.R
-import com.example.thesocialnetwork.authentication.shared.repository.AuthRepository
+import com.example.thesocialnetwork.authentication.shared.repository.RemoteAuthRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -19,7 +19,7 @@ data class RegisterState(
 )
 
 class SignUpViewModel(
-    private val authRepository: AuthRepository = AuthRepository()
+    private val authRepository: RemoteAuthRepository = RemoteAuthRepository()
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(RegisterState())
