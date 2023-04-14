@@ -13,6 +13,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.thesocialnetwork.R
 import com.example.thesocialnetwork.authentication.forgotPassword.ForgotPasswordActivity
 import com.example.thesocialnetwork.authentication.signup.SignUpActivity
+import com.example.thesocialnetwork.feed.FeedActivity
+import com.example.thesocialnetwork.resetPassword.ResetPasswordActivity
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -20,6 +22,9 @@ import kotlinx.coroutines.launch
 class LoginActivity : AppCompatActivity() {
 
     private val viewModel: LoginViewModel by viewModels()
+
+    private lateinit var loadingDialog: LoadingDialog
+    private lateinit var errorDialog: LoadingDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,27 +53,24 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun invalidate(state: LoginState) {
+        loadingDialog = LoadingDialog(this, DialogType.LOADING)
+        errorDialog = LoadingDialog(this, DialogType.ERROR)
+
         if (state.isLoading) {
-            // TODO: Launch loading dialog
-            Toast.makeText(
-                this,
-                R.string.feat_login_loading,
-                Toast.LENGTH_SHORT
-            ).show()
+            loadingDialog.show()
         } else {
-            // TODO: If loading dialog is shown, cancel it
+            loadingDialog.dismiss()
         }
+
         if (state.error != null) {
-            // TODO: Launch error alert
-            Toast.makeText(
-                this,
-                getString(R.string.feat_login_error, state.error.toString()),
-                Toast.LENGTH_SHORT
-            ).show()
+            errorDialog.setErrorMessage(state.error.message ?: "Unknown error")
+            errorDialog.show()
+        } else {
+            errorDialog.dismiss()
         }
+
         if (state.token != null) {
-            // TODO: Launch FeedActivity
-            finish()
+            startActivity(Intent(this, FeedActivity::class.java))
         }
     }
 
