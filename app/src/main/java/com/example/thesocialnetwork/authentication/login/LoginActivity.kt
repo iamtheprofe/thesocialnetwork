@@ -16,8 +16,11 @@ import com.example.thesocialnetwork.authentication.signup.SignUpActivity
 import com.example.thesocialnetwork.feed.FeedActivity
 import com.example.thesocialnetwork.resetPassword.ResetPasswordActivity
 import com.google.android.material.textfield.TextInputEditText
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import kotlin.time.Duration.Companion.seconds
 
 class LoginActivity : AppCompatActivity() {
 
@@ -41,13 +44,20 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
 
-        lifecycleScope.launch {
+        /*lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collectLatest { state ->
                     invalidate(state)
                 }
             }
+        }*/
+        GlobalScope.launch {
+            delay(3.seconds)
+            loadingDialog.show()
         }
+
+
+
         Toast.makeText(this, "This is onCreate", Toast.LENGTH_SHORT).show()
 
     }
@@ -79,20 +89,5 @@ class LoginActivity : AppCompatActivity() {
         val password = findViewById<TextInputEditText>(R.id.password)
 
         viewModel.login(email.text.toString(), password.text.toString())
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Toast.makeText(this, "This is onResume", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Toast.makeText(this, "This is onPause", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Toast.makeText(this, "This is onDestroy", Toast.LENGTH_SHORT).show()
     }
 }
