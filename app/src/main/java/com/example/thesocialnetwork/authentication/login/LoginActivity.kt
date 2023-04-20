@@ -14,6 +14,7 @@ import com.example.thesocialnetwork.authentication.forgotPassword.ForgotPassword
 import com.example.thesocialnetwork.authentication.signup.SignUpActivity
 import com.example.thesocialnetwork.databinding.ActivityLoginBinding
 import com.example.thesocialnetwork.databinding.ItemPostBinding
+import com.example.thesocialnetwork.feed.FeedActivity
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -67,8 +68,7 @@ class LoginActivity : AppCompatActivity() {
             ).show()
         }
         if (state.token != null) {
-            // TODO: Launch FeedActivity
-            finish()
+            startActivity(Intent(this, FeedActivity::class.java))
         }
     }
 
