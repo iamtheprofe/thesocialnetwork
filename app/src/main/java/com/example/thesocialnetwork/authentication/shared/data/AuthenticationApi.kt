@@ -9,4 +9,7 @@ interface AuthenticationApi {
 
     @POST("/api/signup")
     suspend fun signUp(@Body signUpRequest: SignUpRequest): SignUpResponse
+
+    @POST("/api/forgot_password")
+    suspend fun forgotPassword(@Body forgoPassword: ForgotPasswordRequest) : ForgotPasswordResponse
 }

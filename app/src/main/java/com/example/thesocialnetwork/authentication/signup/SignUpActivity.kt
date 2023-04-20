@@ -18,6 +18,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.thesocialnetwork.R
 import com.example.thesocialnetwork.authentication.login.LoginActivity
+import com.example.thesocialnetwork.databinding.ActivitySignUpBinding
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -25,17 +26,18 @@ import kotlinx.coroutines.launch
 class SignUpActivity : AppCompatActivity() {
 
     private val viewModel: SignUpViewModel by viewModels()
+    private var binding : ActivitySignUpBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
-        findViewById<TextView>(R.id.login).setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
+        binding?.login?.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java)) }
 
-        val textView = findViewById<TextView>(R.id.agreement)
-        val agreement = textView.text.toString()
+        val textView = binding?.agreement
+        val agreement = textView?.text.toString()
         val builder = SpannableStringBuilder(agreement)
         val termsConditions = object : ClickableSpan() {
             override fun onClick(widget: View) {
@@ -57,18 +59,16 @@ class SignUpActivity : AppCompatActivity() {
         builder.setSpan(linkStyle, startIndex1, endIndex1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         builder.setSpan(linkStyle, startIndex2, endIndex2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        textView.setText(builder, TextView.BufferType.SPANNABLE)
-        textView.movementMethod = LinkMovementMethod.getInstance()
+        textView?.setText(builder, TextView.BufferType.SPANNABLE)
+        textView?.movementMethod = LinkMovementMethod.getInstance()
 
-        val email = findViewById<TextInputEditText>(R.id.email)
+        val email = binding?.email?.text.toString()
         //val fullName = findViewById<TextInputEditText>(R.id.fullName)
-        val mobile = findViewById<TextInputEditText>(R.id.mobile)
+        val mobile = binding?.mobile?.text.toString()
 
-        val continueButton = findViewById<Button>(R.id.continue_button)
-        continueButton.setOnClickListener {
-            viewModel.signUp(email = email.text.toString(), password = mobile.text.toString())
+        binding?.continueButton?.setOnClickListener {
+            viewModel.signUp(email,mobile)
         }
-
         setupCoroutines()
     }
 

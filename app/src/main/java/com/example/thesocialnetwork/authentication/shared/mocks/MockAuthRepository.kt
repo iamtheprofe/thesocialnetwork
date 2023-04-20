@@ -26,4 +26,11 @@ class MockAuthRepository : AuthRepository {
         }
         return null
     }
+
+    override suspend fun forgotPassword(email: String, mobile: String): String? {
+        if (mockUsers.containsKey(email)) {
+            return "Token: MOCK_TOKEN $email"
+        }
+        return null
+    }
 }

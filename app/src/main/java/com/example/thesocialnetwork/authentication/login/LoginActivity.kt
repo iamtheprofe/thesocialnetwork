@@ -2,8 +2,6 @@ package com.example.thesocialnetwork.authentication.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,26 +11,29 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.thesocialnetwork.R
 import com.example.thesocialnetwork.authentication.forgotPassword.ForgotPasswordActivity
 import com.example.thesocialnetwork.authentication.signup.SignUpActivity
-import com.google.android.material.textfield.TextInputEditText
+import com.example.thesocialnetwork.databinding.ActivityLoginBinding
+import com.example.thesocialnetwork.feed.FeedActivity
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
     private val viewModel: LoginViewModel by viewModels()
+    private var binding: ActivityLoginBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
-        val login = findViewById<Button>(R.id.login)
-        login.setOnClickListener {
+
+        binding?.login?.setOnClickListener{
             handleLogin()
         }
-        findViewById<TextView>(R.id.register).setOnClickListener {
-            startActivity(Intent(this, SignUpActivity::class.java))
-        }
-        findViewById<TextView>(R.id.forgotPassword).setOnClickListener {
+        binding?.register?.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java)) }
+
+        binding?.forgotPassword?.setOnClickListener {
             startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
 
@@ -67,16 +68,16 @@ class LoginActivity : AppCompatActivity() {
             ).show()
         }
         if (state.token != null) {
-            // TODO: Launch FeedActivity
+            startActivity(Intent(this, FeedActivity::class.java))
             finish()
         }
     }
 
     private fun handleLogin() {
-        val email = findViewById<TextInputEditText>(R.id.email)
-        val password = findViewById<TextInputEditText>(R.id.password)
+        val email = binding?.email?.text.toString()
+        val password = binding?.password?.text.toString()
 
-        viewModel.login(email.text.toString(), password.text.toString())
+        viewModel.login(email,password)
     }
 
     override fun onResume() {
