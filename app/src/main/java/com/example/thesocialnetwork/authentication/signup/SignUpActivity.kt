@@ -31,7 +31,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up)
 
         findViewById<TextView>(R.id.login).setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
 
         val textView = findViewById<TextView>(R.id.agreement)
