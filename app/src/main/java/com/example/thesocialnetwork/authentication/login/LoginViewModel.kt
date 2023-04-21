@@ -54,6 +54,5 @@ class LoginViewModel(
                 )
             }
         }
-        println("HI COROUTINES")
     }
 }
