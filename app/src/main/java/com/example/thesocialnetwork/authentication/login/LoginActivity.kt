@@ -26,7 +26,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-
         binding?.login?.setOnClickListener{
             handleLogin()
         }
@@ -92,6 +91,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        Toast.makeText(this, "This is onDestroy", Toast.LENGTH_SHORT).show()
+        binding = null
     }
 }

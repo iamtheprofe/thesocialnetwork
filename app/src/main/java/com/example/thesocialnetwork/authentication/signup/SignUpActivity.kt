@@ -8,7 +8,6 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.TextAppearanceSpan
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -19,14 +18,14 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.thesocialnetwork.R
 import com.example.thesocialnetwork.authentication.login.LoginActivity
 import com.example.thesocialnetwork.databinding.ActivitySignUpBinding
-import com.google.android.material.textfield.TextInputEditText
+import com.example.thesocialnetwork.feed.FeedActivity
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class SignUpActivity : AppCompatActivity() {
 
     private val viewModel: SignUpViewModel by viewModels()
-    private var binding : ActivitySignUpBinding? = null
+    private var binding: ActivitySignUpBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +33,16 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding?.root)
 
         binding?.login?.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java)) }
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
+
+        lifecycleScope.launch{
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                viewModel.state.collectLatest { state ->
+                    invalidate(state)
+                }
+            }
+        }
 
         val textView = binding?.agreement
         val agreement = textView?.text.toString()
@@ -67,29 +75,40 @@ class SignUpActivity : AppCompatActivity() {
         val mobile = binding?.mobile?.text.toString()
 
         binding?.continueButton?.setOnClickListener {
-            viewModel.signUp(email,mobile)
+            viewModel.signUp(email, mobile)
         }
-        setupCoroutines()
+
+    }
+    private fun invalidate(state: RegisterState) {
+        if (state.isLoading) {
+            // TODO: Launch loading dialog
+            Toast.makeText(
+                this,
+                R.string.feat_login_loading,
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            // TODO: If loading dialog is shown, cancel it
+        }
+        if (state.error != null) {
+            // TODO: Launch error alert
+            Toast.makeText(
+                this,
+                getString(R.string.feat_login_error, state.error.toString()),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        if (state.token != null) {
+            startActivity(Intent(this, FeedActivity::class.java))
+            finish()
+        }
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 
-    private fun setupCoroutines() {
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.state.collectLatest { state ->
-                    if (state.isSuccess) {
-                        Toast.makeText(this@SignUpActivity, "Credential are correct", Toast.LENGTH_SHORT).show()
-                    }
-                    state.error?.let { errorMessage ->
-                        Toast.makeText(
-                            this@SignUpActivity,
-                            errorMessage,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            }
-        }
-    }
+
 
 
     /*TODO: Uncomment this code to validate the email, name and mobile number without call the API

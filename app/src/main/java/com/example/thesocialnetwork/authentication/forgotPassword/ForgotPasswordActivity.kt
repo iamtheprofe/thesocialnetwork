@@ -21,16 +21,28 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     private val viewModel: ForgotPasswordViewModel by viewModels()
     private var binding: ActivityForgotPasswordBinding? = null
-    private var loadingDialog: Dialog = Dialog(this)
+    private var loadingDialog: Dialog? = null
+    private var errorDialog: AlertDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
+        loadingDialog = Dialog(this)
+        loadingDialog?.setContentView(R.layout.loading_dialog)
+        loadingDialog?.setCancelable(false)
+        loadingDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        errorDialog = AlertDialog.Builder(this)
+            .setTitle(R.string.feat_forgot_password_invalid_email_mobile)
+            .setPositiveButton(android.R.string.ok, null)
+            .create()
+
         binding?.submitButton?.setOnClickListener {
             handleSubmit()
         }
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collectLatest { state ->
@@ -40,27 +52,18 @@ class ForgotPasswordActivity : AppCompatActivity() {
         }
     }
 
-    private fun showLoadingDialog() {
-        loadingDialog = Dialog(this)
-        loadingDialog.setContentView(R.layout.loading_dialog)
-        loadingDialog.setCancelable(false)
-        loadingDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        loadingDialog.show()
-    }
-
     private fun showErrorDialog(state: ForgotPasswordState) {
-        val builder = AlertDialog.Builder(this)
-            .setTitle(R.string.feat_forgot_password_invalid_email_mobile)
-            .setMessage(getString(R.string.feat_login_error, state.error.toString()))
-            .setPositiveButton(android.R.string.ok, null)
-        builder.show()
+        if (errorDialog != null && !errorDialog!!.isShowing) {
+            errorDialog?.setMessage(getString(R.string.feat_login_error, state.error.toString()))
+            errorDialog?.show()
+        }
     }
 
     private fun invalidate(state: ForgotPasswordState) {
-        if (state.isLoading) {
-            showLoadingDialog()
+        if (state.isLoading && loadingDialog != null) {
+            loadingDialog?.show()
         } else {
-            loadingDialog.dismiss()
+            loadingDialog?.dismiss()
         }
         if (state.error != null) {
             showErrorDialog(state)
@@ -74,5 +77,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
     private fun handleSubmit() {
         val emailMobile = binding?.emailMobile?.text.toString()
         viewModel.forgotPassword(emailMobile)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }

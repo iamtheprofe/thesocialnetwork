@@ -2,6 +2,7 @@ package com.example.thesocialnetwork.authentication.shared.repository
 
 import com.example.thesocialnetwork.authentication.shared.AuthenticationModule
 import com.example.thesocialnetwork.authentication.shared.data.AuthenticationApi
+import com.example.thesocialnetwork.authentication.shared.data.ForgotPasswordRequest
 import com.example.thesocialnetwork.authentication.shared.data.LoginRequest
 import com.example.thesocialnetwork.authentication.shared.data.SignUpRequest
 import com.example.thesocialnetwork.authentication.shared.repository.domain.AuthRepository
@@ -28,6 +29,17 @@ class RemoteAuthRepository(
             val response = api.signUp(signUpRequest)
             response.token
         } catch (exception: Exception) {
+            exception.printStackTrace()
+            null
+        }
+    }
+
+    override suspend fun forgotPassword (email:String,mobile:String): String? {
+       val forgotPasswordRequest = ForgotPasswordRequest(email,mobile)
+        return  try {
+            val response = api.forgotPassword(forgotPasswordRequest)
+            response.token
+        } catch (exception: Exception){
             exception.printStackTrace()
             null
         }

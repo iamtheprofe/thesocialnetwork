@@ -49,9 +49,7 @@ class ForgotPasswordViewModel(
                 isLoading = true
             )
             viewModelScope.launch(Dispatchers.IO) {
-                internalState.value = internalState.value.copy(
-                    isLoading = false
-                )
+
                 val response = if (Patterns.EMAIL_ADDRESS.matcher(emailMobile).matches()) {
                     authRepository.forgotPassword(emailMobile, "")
                 } else {
@@ -59,11 +57,12 @@ class ForgotPasswordViewModel(
                 }
                 if (response == null) {
                     internalState.value = internalState.value.copy(
+                        isLoading = false,
                         error = RuntimeException("Invalid email or password ")
                     )
                 } else {
                     internalState.value = internalState.value.copy(
-                        token = response
+                        token = response,
                     )
                 }
             }

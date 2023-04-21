@@ -1,48 +1,50 @@
 package com.example.thesocialnetwork.authentication.signup
 
 import android.util.Patterns
-import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.thesocialnetwork.R
 import com.example.thesocialnetwork.authentication.shared.repository.RemoteAuthRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 data class RegisterState(
-    val isSuccess: Boolean = false,
-    @StringRes val error: Int? = null
+    val isLoading: Boolean = false,
+    val error: Throwable? = null,
+    val token: String? = null,
+    val isSuccess : Boolean = false,
 )
 
 class SignUpViewModel(
     private val authRepository: RemoteAuthRepository = RemoteAuthRepository()
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(RegisterState())
-    val state: StateFlow<RegisterState> = _state
+    private val internalState = MutableStateFlow(RegisterState())
+    val state: StateFlow<RegisterState> = internalState
 
     fun signUp(email: String, password: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val isValidEmail = async { isValidEmail(email) }
-            val isValidatePassword = async { isValidatePassword(password) }
+        val isValidEmail = isValidEmail(email)
+        val isValidatePassword = isValidatePassword(password)
 
-            if (awaitAll(isValidEmail, isValidatePassword).any { !it }) return@launch
-
-            val response = authRepository.singUp(email, password)
-            if (response == null) {
-                _state.value = _state.value.copy(
-                    error = R.string.feat_sign_up_error_token_is_null
-                )
-            } else {
-                _state.value = _state.value.copy(
-                    isSuccess = true
-                )
+        if (isValidEmail && isValidatePassword) {
+            internalState.value = internalState.value.copy(
+                isLoading = true
+            )
+            viewModelScope.launch(Dispatchers.IO) {
+                val response = authRepository.singUp(email, password)
+                if (response == null) {
+                    internalState.value = internalState.value.copy(
+                        error = Throwable("invalid credentials")
+                    )
+                } else {
+                    internalState.value = internalState.value.copy(
+                        isSuccess = true
+                    )
+                }
             }
         }
+
     }
 
     private fun isValidEmail(email: String): Boolean {
@@ -50,8 +52,8 @@ class SignUpViewModel(
         return if (Patterns.EMAIL_ADDRESS.matcher(cleanEmail).matches()) {
             true
         } else {
-            _state.value = _state.value.copy(
-                error = R.string.feat_sign_up_error_invalid_email
+            internalState.value = internalState.value.copy(
+                error = Throwable("invalid email")
             )
             false
         }
@@ -62,8 +64,8 @@ class SignUpViewModel(
         return if (cleanPassword.isNotEmpty()) {
             true
         } else {
-            _state.value = _state.value.copy(
-                error = R.string.feat_sign_up_error_invalid_password
+            internalState.value = internalState.value.copy(
+                error = Throwable("invalid password")
             )
             false
         }

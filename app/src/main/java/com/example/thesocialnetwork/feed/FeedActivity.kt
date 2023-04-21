@@ -3,19 +3,22 @@ package com.example.thesocialnetwork.feed
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.thesocialnetwork.*
+import com.example.thesocialnetwork.databinding.ActivityFeedBinding
 
 class FeedActivity : AppCompatActivity() {
 
+    private var binding : ActivityFeedBinding? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_feed)
+        binding = ActivityFeedBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        val recyclerView = binding?.recyclerView
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = FeedAdapter(
+        recyclerView?.layoutManager = LinearLayoutManager(this)
+        recyclerView?.adapter = FeedAdapter(
             posts = listOf(
                 Post(
                     type = PostType.Image,
@@ -30,5 +33,9 @@ class FeedActivity : AppCompatActivity() {
                 )
             )
         )
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }

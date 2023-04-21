@@ -1,78 +1,68 @@
 package com.example.thesocialnetwork.feed
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.thesocialnetwork.Post
 import com.example.thesocialnetwork.PostType
-import com.example.thesocialnetwork.R
+import com.example.thesocialnetwork.databinding.ItemPostBinding
+import com.example.thesocialnetwork.databinding.ItemPostImagePostBinding
 
 class FeedAdapter(
     private val posts: List<Post> = emptyList()
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    class TextPostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val profilePictureImage = view.findViewById<ImageView>(R.id.profilePicture)
-        private val postTextView = view.findViewById<TextView>(R.id.post)
-        private val creatorTextView = view.findViewById<TextView>(R.id.creator)
+    class TextPostViewHolder(private val binding: ItemPostBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(post: Post) {
             post.text?.let { text ->
-                postTextView.text = text
+                binding.post.text = text
             }
             post.creator?.user?.profilePicture?.let { profilePicture ->
                 Glide.with(itemView.context)
                     .load(profilePicture)
-                    .into(profilePictureImage)
+                    .into(binding.profilePicture)
             }
             post.creator?.user?.fullName?.let { fullName ->
-                creatorTextView.text = fullName
+                binding.creator.text = fullName
             }
         }
     }
 
-    class ImagePostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val profilePictureImage = view.findViewById<ImageView>(R.id.profilePicture)
-        private val postTextView = view.findViewById<TextView>(R.id.post)
-        private val postImage = view.findViewById<ImageView>(R.id.image)
-        private val creatorTextView = view.findViewById<TextView>(R.id.creator)
-
+    class ImagePostViewHolder(private val binding: ItemPostImagePostBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(post: Post) {
             post.text?.let { text ->
-                postTextView.text = text
+                binding.post.text = text
             }
             post.creator?.user?.profilePicture?.let { profilePicture ->
                 Glide.with(itemView.context)
                     .load(profilePicture)
-                    .into(profilePictureImage)
+                    .into(binding.profilePicture)
             }
             post.creator?.user?.fullName?.let { fullName ->
-                creatorTextView.text = fullName
+                binding.creator.text = fullName
             }
             post.image?.let { image ->
                 Glide.with(itemView.context)
                     .load(image)
-                    .into(postImage)
+                    .into(binding.image)
             }
-
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == PostType.Text.ordinal) {
-            val view =
-                LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false)
-            return TextPostViewHolder(view)
+            val binding =
+                ItemPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            return TextPostViewHolder(binding)
         } else if (viewType == PostType.Image.ordinal) {
-            val view =
-                LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_post_image_post, parent, false)
-            return ImagePostViewHolder(view)
+            val binding =
+                ItemPostImagePostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            return ImagePostViewHolder(binding)
         }
         throw java.lang.RuntimeException("ViewType $viewType does not have a  ViewHolder created")
     }
