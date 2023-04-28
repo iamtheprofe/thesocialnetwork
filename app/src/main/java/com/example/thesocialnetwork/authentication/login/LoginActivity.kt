@@ -13,6 +13,7 @@ import com.example.thesocialnetwork.R
 import com.example.thesocialnetwork.authentication.forgotPassword.ForgotPasswordActivity
 import com.example.thesocialnetwork.authentication.signup.SignUpActivity
 import com.example.thesocialnetwork.databinding.ActivityLoginBinding
+import com.example.thesocialnetwork.feed.FeedActivity
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -53,6 +54,7 @@ class LoginActivity : AppCompatActivity() {
         binding?.password?.doAfterTextChanged {
             binding?.login?.isEnabled = isValidForm()
         }
+        viewModel.validateToken()
     }
 
     override fun onResume() {
@@ -83,6 +85,7 @@ class LoginActivity : AppCompatActivity() {
             ).show()
         }
         if (state.token != null) {
+            startActivity(Intent(this, FeedActivity::class.java))
             finish()
         }
     }

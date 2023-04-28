@@ -55,4 +55,14 @@ class LoginViewModel(
             }
         }
     }
+
+    fun validateToken() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val token = authRepository.getToken()
+            internalState.value = internalState.value.copy(
+                token = token
+            )
+        }
+
+    }
 }

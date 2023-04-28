@@ -37,4 +37,9 @@ class RemoteAuthRepository(
             null
         }
     }
+
+    override suspend fun getToken(): String? {
+        return dao.getToken()?.token
+    }
+
 }

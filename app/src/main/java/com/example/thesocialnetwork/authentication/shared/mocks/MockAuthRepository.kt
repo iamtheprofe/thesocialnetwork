@@ -26,4 +26,8 @@ class MockAuthRepository : AuthRepository {
         }
         return null
     }
+
+    override suspend fun getToken(): String? {
+        return "Token:_ Mock Token"
+    }
 }
